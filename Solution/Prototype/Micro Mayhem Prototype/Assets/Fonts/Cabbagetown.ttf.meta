@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 2df079859add77f4f9211701d9384d84
+timeCreated: 1505840249
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cabbagetown
+  fontNames:
+  - Cabbagetown
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
