@@ -1,0 +1,1338 @@
+fileFormatVersion: 2
+guid: 7798ba4f5d12aa24285ac427e84001f0
+timeCreated: 1506529315
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Armature.001
+    100004: Armature.002
+    100006: Armature.003
+    100008: Armature.004
+    100010: Armature.005
+    100012: Armature.006
+    100014: Armature.007
+    100016: Armature.008
+    100018: Armature.009
+    100020: Armature.010
+    100022: Armature.011
+    100024: Armature.012
+    100026: Armature.013
+    100028: Armature.014
+    100030: Armature.015
+    100032: Armature.016
+    100034: Armature.017
+    100036: Armature.018
+    100038: Armature.019
+    100040: Armature.020
+    100042: Armature.021
+    100044: Armature.022
+    100046: Armature.023
+    100048: //RootNode
+    100050: Bone
+    100052: Bone 1
+    100054: Bone 10
+    100056: Bone 11
+    100058: Bone 12
+    100060: Bone 13
+    100062: Bone 14
+    100064: Bone 15
+    100066: Bone 16
+    100068: Bone 17
+    100070: Bone 18
+    100072: Bone 19
+    100074: Bone 2
+    100076: Bone 20
+    100078: Bone 21
+    100080: Bone 22
+    100082: Bone 23
+    100084: Bone 3
+    100086: Bone 4
+    100088: Bone 5
+    100090: Bone 6
+    100092: Bone 7
+    100094: Bone 8
+    100096: Bone 9
+    100098: Bone.001
+    100100: Bone.001 1
+    100102: Bone.001 10
+    100104: Bone.001 11
+    100106: Bone.001 12
+    100108: Bone.001 13
+    100110: Bone.001 14
+    100112: Bone.001 15
+    100114: Bone.001 16
+    100116: Bone.001 17
+    100118: Bone.001 18
+    100120: Bone.001 19
+    100122: Bone.001 2
+    100124: Bone.001 20
+    100126: Bone.001 21
+    100128: Bone.001 22
+    100130: Bone.001 23
+    100132: Bone.001 3
+    100134: Bone.001 4
+    100136: Bone.001 5
+    100138: Bone.001 6
+    100140: Bone.001 7
+    100142: Bone.001 8
+    100144: Bone.001 9
+    100146: Bone.002
+    100148: Bone.002 1
+    100150: Bone.002 10
+    100152: Bone.002 11
+    100154: Bone.002 12
+    100156: Bone.002 13
+    100158: Bone.002 14
+    100160: Bone.002 15
+    100162: Bone.002 16
+    100164: Bone.002 17
+    100166: Bone.002 18
+    100168: Bone.002 19
+    100170: Bone.002 2
+    100172: Bone.002 20
+    100174: Bone.002 21
+    100176: Bone.002 22
+    100178: Bone.002 23
+    100180: Bone.002 3
+    100182: Bone.002 4
+    100184: Bone.002 5
+    100186: Bone.002 6
+    100188: Bone.002 7
+    100190: Bone.002 8
+    100192: Bone.002 9
+    100194: Bone.003
+    100196: Bone.003 1
+    100198: Bone.003 10
+    100200: Bone.003 11
+    100202: Bone.003 12
+    100204: Bone.003 13
+    100206: Bone.003 14
+    100208: Bone.003 15
+    100210: Bone.003 16
+    100212: Bone.003 17
+    100214: Bone.003 18
+    100216: Bone.003 19
+    100218: Bone.003 2
+    100220: Bone.003 20
+    100222: Bone.003 21
+    100224: Bone.003 22
+    100226: Bone.003 23
+    100228: Bone.003 3
+    100230: Bone.003 4
+    100232: Bone.003 5
+    100234: Bone.003 6
+    100236: Bone.003 7
+    100238: Bone.003 8
+    100240: Bone.003 9
+    100242: Bone.004
+    100244: Bone.004 1
+    100246: Bone.004 10
+    100248: Bone.004 11
+    100250: Bone.004 12
+    100252: Bone.004 13
+    100254: Bone.004 14
+    100256: Bone.004 15
+    100258: Bone.004 16
+    100260: Bone.004 17
+    100262: Bone.004 18
+    100264: Bone.004 19
+    100266: Bone.004 2
+    100268: Bone.004 20
+    100270: Bone.004 21
+    100272: Bone.004 22
+    100274: Bone.004 23
+    100276: Bone.004 3
+    100278: Bone.004 4
+    100280: Bone.004 5
+    100282: Bone.004 6
+    100284: Bone.004 7
+    100286: Bone.004 8
+    100288: Bone.004 9
+    100290: Bone.005
+    100292: Bone.005 1
+    100294: Bone.005 10
+    100296: Bone.005 11
+    100298: Bone.005 12
+    100300: Bone.005 13
+    100302: Bone.005 14
+    100304: Bone.005 15
+    100306: Bone.005 16
+    100308: Bone.005 17
+    100310: Bone.005 18
+    100312: Bone.005 19
+    100314: Bone.005 2
+    100316: Bone.005 20
+    100318: Bone.005 21
+    100320: Bone.005 22
+    100322: Bone.005 23
+    100324: Bone.005 3
+    100326: Bone.005 4
+    100328: Bone.005 5
+    100330: Bone.005 6
+    100332: Bone.005 7
+    100334: Bone.005 8
+    100336: Bone.005 9
+    100338: Bone.006
+    100340: Bone.006 1
+    100342: Bone.006 10
+    100344: Bone.006 11
+    100346: Bone.006 12
+    100348: Bone.006 13
+    100350: Bone.006 14
+    100352: Bone.006 15
+    100354: Bone.006 16
+    100356: Bone.006 17
+    100358: Bone.006 18
+    100360: Bone.006 19
+    100362: Bone.006 2
+    100364: Bone.006 20
+    100366: Bone.006 21
+    100368: Bone.006 22
+    100370: Bone.006 23
+    100372: Bone.006 3
+    100374: Bone.006 4
+    100376: Bone.006 5
+    100378: Bone.006 6
+    100380: Bone.006 7
+    100382: Bone.006 8
+    100384: Bone.006 9
+    100386: Bone.007
+    100388: Bone.007 1
+    100390: Bone.007 10
+    100392: Bone.007 11
+    100394: Bone.007 12
+    100396: Bone.007 13
+    100398: Bone.007 14
+    100400: Bone.007 15
+    100402: Bone.007 16
+    100404: Bone.007 17
+    100406: Bone.007 18
+    100408: Bone.007 19
+    100410: Bone.007 2
+    100412: Bone.007 20
+    100414: Bone.007 21
+    100416: Bone.007 22
+    100418: Bone.007 23
+    100420: Bone.007 3
+    100422: Bone.007 4
+    100424: Bone.007 5
+    100426: Bone.007 6
+    100428: Bone.007 7
+    100430: Bone.007 8
+    100432: Bone.007 9
+    100434: Bone.007_end
+    100436: Bone.007_end 1
+    100438: Bone.007_end 10
+    100440: Bone.007_end 11
+    100442: Bone.007_end 12
+    100444: Bone.007_end 13
+    100446: Bone.007_end 14
+    100448: Bone.007_end 15
+    100450: Bone.007_end 16
+    100452: Bone.007_end 17
+    100454: Bone.007_end 18
+    100456: Bone.007_end 19
+    100458: Bone.007_end 2
+    100460: Bone.007_end 20
+    100462: Bone.007_end 21
+    100464: Bone.007_end 22
+    100466: Bone.007_end 23
+    100468: Bone.007_end 3
+    100470: Bone.007_end 4
+    100472: Bone.007_end 5
+    100474: Bone.007_end 6
+    100476: Bone.007_end 7
+    100478: Bone.007_end 8
+    100480: Bone.007_end 9
+    100482: Cube
+    100484: Cylinder
+    100486: Cylinder.001
+    100488: Cylinder.002
+    100490: Cylinder.003
+    100492: Cylinder.004
+    100494: Cylinder.005
+    100496: Cylinder.006
+    100498: Cylinder.007
+    100500: Cylinder.008
+    100502: Cylinder.009
+    100504: Cylinder.010
+    100506: Cylinder.011
+    100508: Cylinder.012
+    100510: Cylinder.013
+    100512: Cylinder.014
+    100514: Cylinder.015
+    100516: Cylinder.016
+    100518: Cylinder.017
+    100520: Cylinder.018
+    100522: Cylinder.019
+    100524: Cylinder.020
+    100526: Cylinder.021
+    100528: Cylinder.022
+    100530: Cylinder.023
+    100532: IK.Tip
+    100534: IK.Tip 1
+    100536: IK.Tip 10
+    100538: IK.Tip 11
+    100540: IK.Tip 12
+    100542: IK.Tip 13
+    100544: IK.Tip 14
+    100546: IK.Tip 15
+    100548: IK.Tip 16
+    100550: IK.Tip 17
+    100552: IK.Tip 18
+    100554: IK.Tip 19
+    100556: IK.Tip 2
+    100558: IK.Tip 20
+    100560: IK.Tip 21
+    100562: IK.Tip 22
+    100564: IK.Tip 23
+    100566: IK.Tip 3
+    100568: IK.Tip 4
+    100570: IK.Tip 5
+    100572: IK.Tip 6
+    100574: IK.Tip 7
+    100576: IK.Tip 8
+    100578: IK.Tip 9
+    100580: IK.Tip_end
+    100582: IK.Tip_end 1
+    100584: IK.Tip_end 10
+    100586: IK.Tip_end 11
+    100588: IK.Tip_end 12
+    100590: IK.Tip_end 13
+    100592: IK.Tip_end 14
+    100594: IK.Tip_end 15
+    100596: IK.Tip_end 16
+    100598: IK.Tip_end 17
+    100600: IK.Tip_end 18
+    100602: IK.Tip_end 19
+    100604: IK.Tip_end 2
+    100606: IK.Tip_end 20
+    100608: IK.Tip_end 21
+    100610: IK.Tip_end 22
+    100612: IK.Tip_end 23
+    100614: IK.Tip_end 3
+    100616: IK.Tip_end 4
+    100618: IK.Tip_end 5
+    100620: IK.Tip_end 6
+    100622: IK.Tip_end 7
+    100624: IK.Tip_end 8
+    100626: IK.Tip_end 9
+    400000: Armature
+    400002: Armature.001
+    400004: Armature.002
+    400006: Armature.003
+    400008: Armature.004
+    400010: Armature.005
+    400012: Armature.006
+    400014: Armature.007
+    400016: Armature.008
+    400018: Armature.009
+    400020: Armature.010
+    400022: Armature.011
+    400024: Armature.012
+    400026: Armature.013
+    400028: Armature.014
+    400030: Armature.015
+    400032: Armature.016
+    400034: Armature.017
+    400036: Armature.018
+    400038: Armature.019
+    400040: Armature.020
+    400042: Armature.021
+    400044: Armature.022
+    400046: Armature.023
+    400048: //RootNode
+    400050: Bone
+    400052: Bone 1
+    400054: Bone 10
+    400056: Bone 11
+    400058: Bone 12
+    400060: Bone 13
+    400062: Bone 14
+    400064: Bone 15
+    400066: Bone 16
+    400068: Bone 17
+    400070: Bone 18
+    400072: Bone 19
+    400074: Bone 2
+    400076: Bone 20
+    400078: Bone 21
+    400080: Bone 22
+    400082: Bone 23
+    400084: Bone 3
+    400086: Bone 4
+    400088: Bone 5
+    400090: Bone 6
+    400092: Bone 7
+    400094: Bone 8
+    400096: Bone 9
+    400098: Bone.001
+    400100: Bone.001 1
+    400102: Bone.001 10
+    400104: Bone.001 11
+    400106: Bone.001 12
+    400108: Bone.001 13
+    400110: Bone.001 14
+    400112: Bone.001 15
+    400114: Bone.001 16
+    400116: Bone.001 17
+    400118: Bone.001 18
+    400120: Bone.001 19
+    400122: Bone.001 2
+    400124: Bone.001 20
+    400126: Bone.001 21
+    400128: Bone.001 22
+    400130: Bone.001 23
+    400132: Bone.001 3
+    400134: Bone.001 4
+    400136: Bone.001 5
+    400138: Bone.001 6
+    400140: Bone.001 7
+    400142: Bone.001 8
+    400144: Bone.001 9
+    400146: Bone.002
+    400148: Bone.002 1
+    400150: Bone.002 10
+    400152: Bone.002 11
+    400154: Bone.002 12
+    400156: Bone.002 13
+    400158: Bone.002 14
+    400160: Bone.002 15
+    400162: Bone.002 16
+    400164: Bone.002 17
+    400166: Bone.002 18
+    400168: Bone.002 19
+    400170: Bone.002 2
+    400172: Bone.002 20
+    400174: Bone.002 21
+    400176: Bone.002 22
+    400178: Bone.002 23
+    400180: Bone.002 3
+    400182: Bone.002 4
+    400184: Bone.002 5
+    400186: Bone.002 6
+    400188: Bone.002 7
+    400190: Bone.002 8
+    400192: Bone.002 9
+    400194: Bone.003
+    400196: Bone.003 1
+    400198: Bone.003 10
+    400200: Bone.003 11
+    400202: Bone.003 12
+    400204: Bone.003 13
+    400206: Bone.003 14
+    400208: Bone.003 15
+    400210: Bone.003 16
+    400212: Bone.003 17
+    400214: Bone.003 18
+    400216: Bone.003 19
+    400218: Bone.003 2
+    400220: Bone.003 20
+    400222: Bone.003 21
+    400224: Bone.003 22
+    400226: Bone.003 23
+    400228: Bone.003 3
+    400230: Bone.003 4
+    400232: Bone.003 5
+    400234: Bone.003 6
+    400236: Bone.003 7
+    400238: Bone.003 8
+    400240: Bone.003 9
+    400242: Bone.004
+    400244: Bone.004 1
+    400246: Bone.004 10
+    400248: Bone.004 11
+    400250: Bone.004 12
+    400252: Bone.004 13
+    400254: Bone.004 14
+    400256: Bone.004 15
+    400258: Bone.004 16
+    400260: Bone.004 17
+    400262: Bone.004 18
+    400264: Bone.004 19
+    400266: Bone.004 2
+    400268: Bone.004 20
+    400270: Bone.004 21
+    400272: Bone.004 22
+    400274: Bone.004 23
+    400276: Bone.004 3
+    400278: Bone.004 4
+    400280: Bone.004 5
+    400282: Bone.004 6
+    400284: Bone.004 7
+    400286: Bone.004 8
+    400288: Bone.004 9
+    400290: Bone.005
+    400292: Bone.005 1
+    400294: Bone.005 10
+    400296: Bone.005 11
+    400298: Bone.005 12
+    400300: Bone.005 13
+    400302: Bone.005 14
+    400304: Bone.005 15
+    400306: Bone.005 16
+    400308: Bone.005 17
+    400310: Bone.005 18
+    400312: Bone.005 19
+    400314: Bone.005 2
+    400316: Bone.005 20
+    400318: Bone.005 21
+    400320: Bone.005 22
+    400322: Bone.005 23
+    400324: Bone.005 3
+    400326: Bone.005 4
+    400328: Bone.005 5
+    400330: Bone.005 6
+    400332: Bone.005 7
+    400334: Bone.005 8
+    400336: Bone.005 9
+    400338: Bone.006
+    400340: Bone.006 1
+    400342: Bone.006 10
+    400344: Bone.006 11
+    400346: Bone.006 12
+    400348: Bone.006 13
+    400350: Bone.006 14
+    400352: Bone.006 15
+    400354: Bone.006 16
+    400356: Bone.006 17
+    400358: Bone.006 18
+    400360: Bone.006 19
+    400362: Bone.006 2
+    400364: Bone.006 20
+    400366: Bone.006 21
+    400368: Bone.006 22
+    400370: Bone.006 23
+    400372: Bone.006 3
+    400374: Bone.006 4
+    400376: Bone.006 5
+    400378: Bone.006 6
+    400380: Bone.006 7
+    400382: Bone.006 8
+    400384: Bone.006 9
+    400386: Bone.007
+    400388: Bone.007 1
+    400390: Bone.007 10
+    400392: Bone.007 11
+    400394: Bone.007 12
+    400396: Bone.007 13
+    400398: Bone.007 14
+    400400: Bone.007 15
+    400402: Bone.007 16
+    400404: Bone.007 17
+    400406: Bone.007 18
+    400408: Bone.007 19
+    400410: Bone.007 2
+    400412: Bone.007 20
+    400414: Bone.007 21
+    400416: Bone.007 22
+    400418: Bone.007 23
+    400420: Bone.007 3
+    400422: Bone.007 4
+    400424: Bone.007 5
+    400426: Bone.007 6
+    400428: Bone.007 7
+    400430: Bone.007 8
+    400432: Bone.007 9
+    400434: Bone.007_end
+    400436: Bone.007_end 1
+    400438: Bone.007_end 10
+    400440: Bone.007_end 11
+    400442: Bone.007_end 12
+    400444: Bone.007_end 13
+    400446: Bone.007_end 14
+    400448: Bone.007_end 15
+    400450: Bone.007_end 16
+    400452: Bone.007_end 17
+    400454: Bone.007_end 18
+    400456: Bone.007_end 19
+    400458: Bone.007_end 2
+    400460: Bone.007_end 20
+    400462: Bone.007_end 21
+    400464: Bone.007_end 22
+    400466: Bone.007_end 23
+    400468: Bone.007_end 3
+    400470: Bone.007_end 4
+    400472: Bone.007_end 5
+    400474: Bone.007_end 6
+    400476: Bone.007_end 7
+    400478: Bone.007_end 8
+    400480: Bone.007_end 9
+    400482: Cube
+    400484: Cylinder
+    400486: Cylinder.001
+    400488: Cylinder.002
+    400490: Cylinder.003
+    400492: Cylinder.004
+    400494: Cylinder.005
+    400496: Cylinder.006
+    400498: Cylinder.007
+    400500: Cylinder.008
+    400502: Cylinder.009
+    400504: Cylinder.010
+    400506: Cylinder.011
+    400508: Cylinder.012
+    400510: Cylinder.013
+    400512: Cylinder.014
+    400514: Cylinder.015
+    400516: Cylinder.016
+    400518: Cylinder.017
+    400520: Cylinder.018
+    400522: Cylinder.019
+    400524: Cylinder.020
+    400526: Cylinder.021
+    400528: Cylinder.022
+    400530: Cylinder.023
+    400532: IK.Tip
+    400534: IK.Tip 1
+    400536: IK.Tip 10
+    400538: IK.Tip 11
+    400540: IK.Tip 12
+    400542: IK.Tip 13
+    400544: IK.Tip 14
+    400546: IK.Tip 15
+    400548: IK.Tip 16
+    400550: IK.Tip 17
+    400552: IK.Tip 18
+    400554: IK.Tip 19
+    400556: IK.Tip 2
+    400558: IK.Tip 20
+    400560: IK.Tip 21
+    400562: IK.Tip 22
+    400564: IK.Tip 23
+    400566: IK.Tip 3
+    400568: IK.Tip 4
+    400570: IK.Tip 5
+    400572: IK.Tip 6
+    400574: IK.Tip 7
+    400576: IK.Tip 8
+    400578: IK.Tip 9
+    400580: IK.Tip_end
+    400582: IK.Tip_end 1
+    400584: IK.Tip_end 10
+    400586: IK.Tip_end 11
+    400588: IK.Tip_end 12
+    400590: IK.Tip_end 13
+    400592: IK.Tip_end 14
+    400594: IK.Tip_end 15
+    400596: IK.Tip_end 16
+    400598: IK.Tip_end 17
+    400600: IK.Tip_end 18
+    400602: IK.Tip_end 19
+    400604: IK.Tip_end 2
+    400606: IK.Tip_end 20
+    400608: IK.Tip_end 21
+    400610: IK.Tip_end 22
+    400612: IK.Tip_end 23
+    400614: IK.Tip_end 3
+    400616: IK.Tip_end 4
+    400618: IK.Tip_end 5
+    400620: IK.Tip_end 6
+    400622: IK.Tip_end 7
+    400624: IK.Tip_end 8
+    400626: IK.Tip_end 9
+    2300000: Cube
+    3300000: Cube
+    4300000: Cylinder.023
+    4300002: Cylinder.022
+    4300004: Cylinder.021
+    4300006: Cylinder.020
+    4300008: Cylinder.019
+    4300010: Cylinder.018
+    4300012: Cylinder.017
+    4300014: Cylinder.016
+    4300016: Cylinder.015
+    4300018: Cylinder.014
+    4300020: Cylinder.013
+    4300022: Cylinder.012
+    4300024: Cylinder.011
+    4300026: Cylinder.010
+    4300028: Cylinder.009
+    4300030: Cylinder.008
+    4300032: Cylinder.007
+    4300034: Cylinder.006
+    4300036: Cylinder.005
+    4300038: Cylinder.004
+    4300040: Cylinder.003
+    4300042: Cylinder.002
+    4300044: Cylinder.001
+    4300046: Cylinder
+    4300048: Cube
+    7400000: Armature.023|Move
+    7400002: Armature.023|Move.001
+    7400004: Armature.023|Move.002
+    7400006: Armature.023|Move.003
+    7400008: Armature.023|Move.004
+    7400010: Armature.023|Move.005
+    7400012: Armature.023|Move.006
+    7400014: Armature.023|Move.007
+    7400016: Armature.023|Move.008
+    7400018: Armature.023|Move.009
+    7400020: Armature.023|Move.010
+    7400022: Armature.023|Move.011
+    7400024: Armature.023|Move.012
+    7400026: Armature.023|Move.013
+    7400028: Armature.023|Move.014
+    7400030: Armature.023|Move.015
+    7400032: Armature.023|Move.016
+    7400034: Armature.023|Move.017
+    7400036: Armature.023|Move.018
+    7400038: Armature.023|Move.019
+    7400040: Armature.023|Move.020
+    7400042: Armature.023|Move.021
+    7400044: Armature.023|Move.022
+    7400046: Armature.023|Move.023
+    7400048: Armature.022|Move
+    7400050: Armature.022|Move.001
+    7400052: Armature.022|Move.002
+    7400054: Armature.022|Move.003
+    7400056: Armature.022|Move.004
+    7400058: Armature.022|Move.005
+    7400060: Armature.022|Move.006
+    7400062: Armature.022|Move.007
+    7400064: Armature.022|Move.008
+    7400066: Armature.022|Move.009
+    7400068: Armature.022|Move.010
+    7400070: Armature.022|Move.011
+    7400072: Armature.022|Move.012
+    7400074: Armature.022|Move.013
+    7400076: Armature.022|Move.014
+    7400078: Armature.022|Move.015
+    7400080: Armature.022|Move.016
+    7400082: Armature.022|Move.017
+    7400084: Armature.022|Move.018
+    7400086: Armature.022|Move.019
+    7400088: Armature.022|Move.020
+    7400090: Armature.022|Move.021
+    7400092: Armature.022|Move.022
+    7400094: Armature.022|Move.023
+    7400096: Armature.021|Move
+    7400098: Armature.021|Move.001
+    7400100: Armature.021|Move.002
+    7400102: Armature.021|Move.003
+    7400104: Armature.021|Move.004
+    7400106: Armature.021|Move.005
+    7400108: Armature.021|Move.006
+    7400110: Armature.021|Move.007
+    7400112: Armature.021|Move.008
+    7400114: Armature.021|Move.009
+    7400116: Armature.021|Move.010
+    7400118: Armature.021|Move.011
+    7400120: Armature.021|Move.012
+    7400122: Armature.021|Move.013
+    7400124: Armature.021|Move.014
+    7400126: Armature.021|Move.015
+    7400128: Armature.021|Move.016
+    7400130: Armature.021|Move.017
+    7400132: Armature.021|Move.018
+    7400134: Armature.021|Move.019
+    7400136: Armature.021|Move.020
+    7400138: Armature.021|Move.021
+    7400140: Armature.021|Move.022
+    7400142: Armature.021|Move.023
+    7400144: Armature.020|Move
+    7400146: Armature.020|Move.001
+    7400148: Armature.020|Move.002
+    7400150: Armature.020|Move.003
+    7400152: Armature.020|Move.004
+    7400154: Armature.020|Move.005
+    7400156: Armature.020|Move.006
+    7400158: Armature.020|Move.007
+    7400160: Armature.020|Move.008
+    7400162: Armature.020|Move.009
+    7400164: Armature.020|Move.010
+    7400166: Armature.020|Move.011
+    7400168: Armature.020|Move.012
+    7400170: Armature.020|Move.013
+    7400172: Armature.020|Move.014
+    7400174: Armature.020|Move.015
+    7400176: Armature.020|Move.016
+    7400178: Armature.020|Move.017
+    7400180: Armature.020|Move.018
+    7400182: Armature.020|Move.019
+    7400184: Armature.020|Move.020
+    7400186: Armature.020|Move.021
+    7400188: Armature.020|Move.022
+    7400190: Armature.020|Move.023
+    7400192: Armature.019|Move
+    7400194: Armature.019|Move.001
+    7400196: Armature.019|Move.002
+    7400198: Armature.019|Move.003
+    7400200: Armature.019|Move.004
+    7400202: Armature.019|Move.005
+    7400204: Armature.019|Move.006
+    7400206: Armature.019|Move.007
+    7400208: Armature.019|Move.008
+    7400210: Armature.019|Move.009
+    7400212: Armature.019|Move.010
+    7400214: Armature.019|Move.011
+    7400216: Armature.019|Move.012
+    7400218: Armature.019|Move.013
+    7400220: Armature.019|Move.014
+    7400222: Armature.019|Move.015
+    7400224: Armature.019|Move.016
+    7400226: Armature.019|Move.017
+    7400228: Armature.019|Move.018
+    7400230: Armature.019|Move.019
+    7400232: Armature.019|Move.020
+    7400234: Armature.019|Move.021
+    7400236: Armature.019|Move.022
+    7400238: Armature.019|Move.023
+    7400240: Armature.018|Move
+    7400242: Armature.018|Move.001
+    7400244: Armature.018|Move.002
+    7400246: Armature.018|Move.003
+    7400248: Armature.018|Move.004
+    7400250: Armature.018|Move.005
+    7400252: Armature.018|Move.006
+    7400254: Armature.018|Move.007
+    7400256: Armature.018|Move.008
+    7400258: Armature.018|Move.009
+    7400260: Armature.018|Move.010
+    7400262: Armature.018|Move.011
+    7400264: Armature.018|Move.012
+    7400266: Armature.018|Move.013
+    7400268: Armature.018|Move.014
+    7400270: Armature.018|Move.015
+    7400272: Armature.018|Move.016
+    7400274: Armature.018|Move.017
+    7400276: Armature.018|Move.018
+    7400278: Armature.018|Move.019
+    7400280: Armature.018|Move.020
+    7400282: Armature.018|Move.021
+    7400284: Armature.018|Move.022
+    7400286: Armature.018|Move.023
+    7400288: Armature.017|Move
+    7400290: Armature.017|Move.001
+    7400292: Armature.017|Move.002
+    7400294: Armature.017|Move.003
+    7400296: Armature.017|Move.004
+    7400298: Armature.017|Move.005
+    7400300: Armature.017|Move.006
+    7400302: Armature.017|Move.007
+    7400304: Armature.017|Move.008
+    7400306: Armature.017|Move.009
+    7400308: Armature.017|Move.010
+    7400310: Armature.017|Move.011
+    7400312: Armature.017|Move.012
+    7400314: Armature.017|Move.013
+    7400316: Armature.017|Move.014
+    7400318: Armature.017|Move.015
+    7400320: Armature.017|Move.016
+    7400322: Armature.017|Move.017
+    7400324: Armature.017|Move.018
+    7400326: Armature.017|Move.019
+    7400328: Armature.017|Move.020
+    7400330: Armature.017|Move.021
+    7400332: Armature.017|Move.022
+    7400334: Armature.017|Move.023
+    7400336: Armature.016|Move
+    7400338: Armature.016|Move.001
+    7400340: Armature.016|Move.002
+    7400342: Armature.016|Move.003
+    7400344: Armature.016|Move.004
+    7400346: Armature.016|Move.005
+    7400348: Armature.016|Move.006
+    7400350: Armature.016|Move.007
+    7400352: Armature.016|Move.008
+    7400354: Armature.016|Move.009
+    7400356: Armature.016|Move.010
+    7400358: Armature.016|Move.011
+    7400360: Armature.016|Move.012
+    7400362: Armature.016|Move.013
+    7400364: Armature.016|Move.014
+    7400366: Armature.016|Move.015
+    7400368: Armature.016|Move.016
+    7400370: Armature.016|Move.017
+    7400372: Armature.016|Move.018
+    7400374: Armature.016|Move.019
+    7400376: Armature.016|Move.020
+    7400378: Armature.016|Move.021
+    7400380: Armature.016|Move.022
+    7400382: Armature.016|Move.023
+    7400384: Armature.015|Move
+    7400386: Armature.015|Move.001
+    7400388: Armature.015|Move.002
+    7400390: Armature.015|Move.003
+    7400392: Armature.015|Move.004
+    7400394: Armature.015|Move.005
+    7400396: Armature.015|Move.006
+    7400398: Armature.015|Move.007
+    7400400: Armature.015|Move.008
+    7400402: Armature.015|Move.009
+    7400404: Armature.015|Move.010
+    7400406: Armature.015|Move.011
+    7400408: Armature.015|Move.012
+    7400410: Armature.015|Move.013
+    7400412: Armature.015|Move.014
+    7400414: Armature.015|Move.015
+    7400416: Armature.015|Move.016
+    7400418: Armature.015|Move.017
+    7400420: Armature.015|Move.018
+    7400422: Armature.015|Move.019
+    7400424: Armature.015|Move.020
+    7400426: Armature.015|Move.021
+    7400428: Armature.015|Move.022
+    7400430: Armature.015|Move.023
+    7400432: Armature.014|Move
+    7400434: Armature.014|Move.001
+    7400436: Armature.014|Move.002
+    7400438: Armature.014|Move.003
+    7400440: Armature.014|Move.004
+    7400442: Armature.014|Move.005
+    7400444: Armature.014|Move.006
+    7400446: Armature.014|Move.007
+    7400448: Armature.014|Move.008
+    7400450: Armature.014|Move.009
+    7400452: Armature.014|Move.010
+    7400454: Armature.014|Move.011
+    7400456: Armature.014|Move.012
+    7400458: Armature.014|Move.013
+    7400460: Armature.014|Move.014
+    7400462: Armature.014|Move.015
+    7400464: Armature.014|Move.016
+    7400466: Armature.014|Move.017
+    7400468: Armature.014|Move.018
+    7400470: Armature.014|Move.019
+    7400472: Armature.014|Move.020
+    7400474: Armature.014|Move.021
+    7400476: Armature.014|Move.022
+    7400478: Armature.014|Move.023
+    7400480: Armature.013|Move
+    7400482: Armature.013|Move.001
+    7400484: Armature.013|Move.002
+    7400486: Armature.013|Move.003
+    7400488: Armature.013|Move.004
+    7400490: Armature.013|Move.005
+    7400492: Armature.013|Move.006
+    7400494: Armature.013|Move.007
+    7400496: Armature.013|Move.008
+    7400498: Armature.013|Move.009
+    7400500: Armature.013|Move.010
+    7400502: Armature.013|Move.011
+    7400504: Armature.013|Move.012
+    7400506: Armature.013|Move.013
+    7400508: Armature.013|Move.014
+    7400510: Armature.013|Move.015
+    7400512: Armature.013|Move.016
+    7400514: Armature.013|Move.017
+    7400516: Armature.013|Move.018
+    7400518: Armature.013|Move.019
+    7400520: Armature.013|Move.020
+    7400522: Armature.013|Move.021
+    7400524: Armature.013|Move.022
+    7400526: Armature.013|Move.023
+    7400528: Armature.012|Move
+    7400530: Armature.012|Move.001
+    7400532: Armature.012|Move.002
+    7400534: Armature.012|Move.003
+    7400536: Armature.012|Move.004
+    7400538: Armature.012|Move.005
+    7400540: Armature.012|Move.006
+    7400542: Armature.012|Move.007
+    7400544: Armature.012|Move.008
+    7400546: Armature.012|Move.009
+    7400548: Armature.012|Move.010
+    7400550: Armature.012|Move.011
+    7400552: Armature.012|Move.012
+    7400554: Armature.012|Move.013
+    7400556: Armature.012|Move.014
+    7400558: Armature.012|Move.015
+    7400560: Armature.012|Move.016
+    7400562: Armature.012|Move.017
+    7400564: Armature.012|Move.018
+    7400566: Armature.012|Move.019
+    7400568: Armature.012|Move.020
+    7400570: Armature.012|Move.021
+    7400572: Armature.012|Move.022
+    7400574: Armature.012|Move.023
+    7400576: Armature.011|Move
+    7400578: Armature.011|Move.001
+    7400580: Armature.011|Move.002
+    7400582: Armature.011|Move.003
+    7400584: Armature.011|Move.004
+    7400586: Armature.011|Move.005
+    7400588: Armature.011|Move.006
+    7400590: Armature.011|Move.007
+    7400592: Armature.011|Move.008
+    7400594: Armature.011|Move.009
+    7400596: Armature.011|Move.010
+    7400598: Armature.011|Move.011
+    7400600: Armature.011|Move.012
+    7400602: Armature.011|Move.013
+    7400604: Armature.011|Move.014
+    7400606: Armature.011|Move.015
+    7400608: Armature.011|Move.016
+    7400610: Armature.011|Move.017
+    7400612: Armature.011|Move.018
+    7400614: Armature.011|Move.019
+    7400616: Armature.011|Move.020
+    7400618: Armature.011|Move.021
+    7400620: Armature.011|Move.022
+    7400622: Armature.011|Move.023
+    7400624: Armature.010|Move
+    7400626: Armature.010|Move.001
+    7400628: Armature.010|Move.002
+    7400630: Armature.010|Move.003
+    7400632: Armature.010|Move.004
+    7400634: Armature.010|Move.005
+    7400636: Armature.010|Move.006
+    7400638: Armature.010|Move.007
+    7400640: Armature.010|Move.008
+    7400642: Armature.010|Move.009
+    7400644: Armature.010|Move.010
+    7400646: Armature.010|Move.011
+    7400648: Armature.010|Move.012
+    7400650: Armature.010|Move.013
+    7400652: Armature.010|Move.014
+    7400654: Armature.010|Move.015
+    7400656: Armature.010|Move.016
+    7400658: Armature.010|Move.017
+    7400660: Armature.010|Move.018
+    7400662: Armature.010|Move.019
+    7400664: Armature.010|Move.020
+    7400666: Armature.010|Move.021
+    7400668: Armature.010|Move.022
+    7400670: Armature.010|Move.023
+    7400672: Armature.009|Move
+    7400674: Armature.009|Move.001
+    7400676: Armature.009|Move.002
+    7400678: Armature.009|Move.003
+    7400680: Armature.009|Move.004
+    7400682: Armature.009|Move.005
+    7400684: Armature.009|Move.006
+    7400686: Armature.009|Move.007
+    7400688: Armature.009|Move.008
+    7400690: Armature.009|Move.009
+    7400692: Armature.009|Move.010
+    7400694: Armature.009|Move.011
+    7400696: Armature.009|Move.012
+    7400698: Armature.009|Move.013
+    7400700: Armature.009|Move.014
+    7400702: Armature.009|Move.015
+    7400704: Armature.009|Move.016
+    7400706: Armature.009|Move.017
+    7400708: Armature.009|Move.018
+    7400710: Armature.009|Move.019
+    7400712: Armature.009|Move.020
+    7400714: Armature.009|Move.021
+    7400716: Armature.009|Move.022
+    7400718: Armature.009|Move.023
+    7400720: Armature.008|Move
+    7400722: Armature.008|Move.001
+    7400724: Armature.008|Move.002
+    7400726: Armature.008|Move.003
+    7400728: Armature.008|Move.004
+    7400730: Armature.008|Move.005
+    7400732: Armature.008|Move.006
+    7400734: Armature.008|Move.007
+    7400736: Armature.008|Move.008
+    7400738: Armature.008|Move.009
+    7400740: Armature.008|Move.010
+    7400742: Armature.008|Move.011
+    7400744: Armature.008|Move.012
+    7400746: Armature.008|Move.013
+    7400748: Armature.008|Move.014
+    7400750: Armature.008|Move.015
+    7400752: Armature.008|Move.016
+    7400754: Armature.008|Move.017
+    7400756: Armature.008|Move.018
+    7400758: Armature.008|Move.019
+    7400760: Armature.008|Move.020
+    7400762: Armature.008|Move.021
+    7400764: Armature.008|Move.022
+    7400766: Armature.008|Move.023
+    7400768: Armature.007|Move
+    7400770: Armature.007|Move.001
+    7400772: Armature.007|Move.002
+    7400774: Armature.007|Move.003
+    7400776: Armature.007|Move.004
+    7400778: Armature.007|Move.005
+    7400780: Armature.007|Move.006
+    7400782: Armature.007|Move.007
+    7400784: Armature.007|Move.008
+    7400786: Armature.007|Move.009
+    7400788: Armature.007|Move.010
+    7400790: Armature.007|Move.011
+    7400792: Armature.007|Move.012
+    7400794: Armature.007|Move.013
+    7400796: Armature.007|Move.014
+    7400798: Armature.007|Move.015
+    7400800: Armature.007|Move.016
+    7400802: Armature.007|Move.017
+    7400804: Armature.007|Move.018
+    7400806: Armature.007|Move.019
+    7400808: Armature.007|Move.020
+    7400810: Armature.007|Move.021
+    7400812: Armature.007|Move.022
+    7400814: Armature.007|Move.023
+    7400816: Armature.006|Move
+    7400818: Armature.006|Move.001
+    7400820: Armature.006|Move.002
+    7400822: Armature.006|Move.003
+    7400824: Armature.006|Move.004
+    7400826: Armature.006|Move.005
+    7400828: Armature.006|Move.006
+    7400830: Armature.006|Move.007
+    7400832: Armature.006|Move.008
+    7400834: Armature.006|Move.009
+    7400836: Armature.006|Move.010
+    7400838: Armature.006|Move.011
+    7400840: Armature.006|Move.012
+    7400842: Armature.006|Move.013
+    7400844: Armature.006|Move.014
+    7400846: Armature.006|Move.015
+    7400848: Armature.006|Move.016
+    7400850: Armature.006|Move.017
+    7400852: Armature.006|Move.018
+    7400854: Armature.006|Move.019
+    7400856: Armature.006|Move.020
+    7400858: Armature.006|Move.021
+    7400860: Armature.006|Move.022
+    7400862: Armature.006|Move.023
+    7400864: Armature.005|Move
+    7400866: Armature.005|Move.001
+    7400868: Armature.005|Move.002
+    7400870: Armature.005|Move.003
+    7400872: Armature.005|Move.004
+    7400874: Armature.005|Move.005
+    7400876: Armature.005|Move.006
+    7400878: Armature.005|Move.007
+    7400880: Armature.005|Move.008
+    7400882: Armature.005|Move.009
+    7400884: Armature.005|Move.010
+    7400886: Armature.005|Move.011
+    7400888: Armature.005|Move.012
+    7400890: Armature.005|Move.013
+    7400892: Armature.005|Move.014
+    7400894: Armature.005|Move.015
+    7400896: Armature.005|Move.016
+    7400898: Armature.005|Move.017
+    7400900: Armature.005|Move.018
+    7400902: Armature.005|Move.019
+    7400904: Armature.005|Move.020
+    7400906: Armature.005|Move.021
+    7400908: Armature.005|Move.022
+    7400910: Armature.005|Move.023
+    7400912: Armature.004|Move
+    7400914: Armature.004|Move.001
+    7400916: Armature.004|Move.002
+    7400918: Armature.004|Move.003
+    7400920: Armature.004|Move.004
+    7400922: Armature.004|Move.005
+    7400924: Armature.004|Move.006
+    7400926: Armature.004|Move.007
+    7400928: Armature.004|Move.008
+    7400930: Armature.004|Move.009
+    7400932: Armature.004|Move.010
+    7400934: Armature.004|Move.011
+    7400936: Armature.004|Move.012
+    7400938: Armature.004|Move.013
+    7400940: Armature.004|Move.014
+    7400942: Armature.004|Move.015
+    7400944: Armature.004|Move.016
+    7400946: Armature.004|Move.017
+    7400948: Armature.004|Move.018
+    7400950: Armature.004|Move.019
+    7400952: Armature.004|Move.020
+    7400954: Armature.004|Move.021
+    7400956: Armature.004|Move.022
+    7400958: Armature.004|Move.023
+    7400960: Armature.003|Move
+    7400962: Armature.003|Move.001
+    7400964: Armature.003|Move.002
+    7400966: Armature.003|Move.003
+    7400968: Armature.003|Move.004
+    7400970: Armature.003|Move.005
+    7400972: Armature.003|Move.006
+    7400974: Armature.003|Move.007
+    7400976: Armature.003|Move.008
+    7400978: Armature.003|Move.009
+    7400980: Armature.003|Move.010
+    7400982: Armature.003|Move.011
+    7400984: Armature.003|Move.012
+    7400986: Armature.003|Move.013
+    7400988: Armature.003|Move.014
+    7400990: Armature.003|Move.015
+    7400992: Armature.003|Move.016
+    7400994: Armature.003|Move.017
+    7400996: Armature.003|Move.018
+    7400998: Armature.003|Move.019
+    7401000: Armature.003|Move.020
+    7401002: Armature.003|Move.021
+    7401004: Armature.003|Move.022
+    7401006: Armature.003|Move.023
+    7401008: Armature.002|Move
+    7401010: Armature.002|Move.001
+    7401012: Armature.002|Move.002
+    7401014: Armature.002|Move.003
+    7401016: Armature.002|Move.004
+    7401018: Armature.002|Move.005
+    7401020: Armature.002|Move.006
+    7401022: Armature.002|Move.007
+    7401024: Armature.002|Move.008
+    7401026: Armature.002|Move.009
+    7401028: Armature.002|Move.010
+    7401030: Armature.002|Move.011
+    7401032: Armature.002|Move.012
+    7401034: Armature.002|Move.013
+    7401036: Armature.002|Move.014
+    7401038: Armature.002|Move.015
+    7401040: Armature.002|Move.016
+    7401042: Armature.002|Move.017
+    7401044: Armature.002|Move.018
+    7401046: Armature.002|Move.019
+    7401048: Armature.002|Move.020
+    7401050: Armature.002|Move.021
+    7401052: Armature.002|Move.022
+    7401054: Armature.002|Move.023
+    7401056: Armature.001|Move
+    7401058: Armature.001|Move.001
+    7401060: Armature.001|Move.002
+    7401062: Armature.001|Move.003
+    7401064: Armature.001|Move.004
+    7401066: Armature.001|Move.005
+    7401068: Armature.001|Move.006
+    7401070: Armature.001|Move.007
+    7401072: Armature.001|Move.008
+    7401074: Armature.001|Move.009
+    7401076: Armature.001|Move.010
+    7401078: Armature.001|Move.011
+    7401080: Armature.001|Move.012
+    7401082: Armature.001|Move.013
+    7401084: Armature.001|Move.014
+    7401086: Armature.001|Move.015
+    7401088: Armature.001|Move.016
+    7401090: Armature.001|Move.017
+    7401092: Armature.001|Move.018
+    7401094: Armature.001|Move.019
+    7401096: Armature.001|Move.020
+    7401098: Armature.001|Move.021
+    7401100: Armature.001|Move.022
+    7401102: Armature.001|Move.023
+    7401104: Armature|Move
+    7401106: Armature|Move.001
+    7401108: Armature|Move.002
+    7401110: Armature|Move.003
+    7401112: Armature|Move.004
+    7401114: Armature|Move.005
+    7401116: Armature|Move.006
+    7401118: Armature|Move.007
+    7401120: Armature|Move.008
+    7401122: Armature|Move.009
+    7401124: Armature|Move.010
+    7401126: Armature|Move.011
+    7401128: Armature|Move.012
+    7401130: Armature|Move.013
+    7401132: Armature|Move.014
+    7401134: Armature|Move.015
+    7401136: Armature|Move.016
+    7401138: Armature|Move.017
+    7401140: Armature|Move.018
+    7401142: Armature|Move.019
+    7401144: Armature|Move.020
+    7401146: Armature|Move.021
+    7401148: Armature|Move.022
+    7401150: Armature|Move.023
+    9500000: //RootNode
+    13700000: Cylinder
+    13700002: Cylinder.001
+    13700004: Cylinder.002
+    13700006: Cylinder.003
+    13700008: Cylinder.004
+    13700010: Cylinder.005
+    13700012: Cylinder.006
+    13700014: Cylinder.007
+    13700016: Cylinder.008
+    13700018: Cylinder.009
+    13700020: Cylinder.010
+    13700022: Cylinder.011
+    13700024: Cylinder.012
+    13700026: Cylinder.013
+    13700028: Cylinder.014
+    13700030: Cylinder.015
+    13700032: Cylinder.016
+    13700034: Cylinder.017
+    13700036: Cylinder.018
+    13700038: Cylinder.019
+    13700040: Cylinder.020
+    13700042: Cylinder.021
+    13700044: Cylinder.022
+    13700046: Cylinder.023
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
