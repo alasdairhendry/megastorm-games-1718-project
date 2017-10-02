@@ -1,34 +1,15 @@
 fileFormatVersion: 2
-guid: b68a3eb9e17c0bb49b2a22963a502792
-timeCreated: 1505843036
+guid: bcdfee15bf3d98c46a2f05dcc50ad94c
+timeCreated: 1506731741
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: Foot.L
-    100002: Foot.R
-    100004: Head
-    100006: Heel.L
-    100008: Heel.R
-    100010: LowerBody
-    100012: Neck
-    100014: Pill-Man
-    100016: //RootNode
-    100018: UpperBody
-    400000: Foot.L
-    400002: Foot.R
-    400004: Head
-    400006: Heel.L
-    400008: Heel.R
-    400010: LowerBody
-    400012: Neck
-    400014: Pill-Man
-    400016: //RootNode
-    400018: UpperBody
-    4300000: Pill-Man
-    7400000: Walking
-    9500000: //RootNode
-    13700000: Pill-Man
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Gun
   materials:
     importMaterials: 1
     materialName: 0
@@ -52,35 +33,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Walking
-      takeName: Take 001
-      firstFrame: 0
-      lastFrame: 20
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -126,7 +79,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
