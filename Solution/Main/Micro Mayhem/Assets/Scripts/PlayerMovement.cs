@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private GameObject upperRotationalBone;
     [SerializeField] private float movementSpeed = 15.0f;
 
+    [SerializeField] private GameObject crosshair;
+
 	// Use this for initialization
 	void Start () {
         animator = GetComponentInChildren<Animator>();
@@ -42,9 +44,26 @@ public class PlayerMovement : MonoBehaviour {
             float angle = Mathf.Atan2(hit.point.z - transform.position.z, hit.point.x - transform.position.x) * Mathf.Rad2Deg - 90;
             if (angle < 0)
                 angle += 360;
-            print(angle + " - " + hit.point);
+            //print(angle + " - " + hit.point);
 
             upperRotationalBone.transform.eulerAngles = new Vector3(upperRotationalBone.transform.eulerAngles.x, -angle, upperRotationalBone.transform.eulerAngles.z);
+        }
+
+        if(Physics.Raycast(ray, out hit))
+        {
+            crosshair.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            crosshair.transform.position += crosshair.transform.InverseTransformDirection(crosshair.transform.Find("Graphics").forward).normalized * 0.1f;
+            //print(crosshair.transform.InverseTransformDirection(crosshair.transform.Find("Graphics").forward));
+
+            //crosshair.transform.position += transform.Find("Graphics").forward.normalized * 1.0f;
+            //print(transform.Find("Graphics").forward.normalized);
+
+            //Debug.DrawRay(hit.point, hit.normal);
+
+            Quaternion newRot = Quaternion.LookRotation(hit.normal);
+            crosshair.transform.Find("Graphics").rotation = Quaternion.Slerp(crosshair.transform.Find("Graphics").rotation, newRot, Time.deltaTime * 5.0f);
+
+            //crosshair.transform.Find("Graphics").rotation = Quaternion.LookRotation(hit.normal);                  
         }
     }
 }
