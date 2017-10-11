@@ -1,0 +1,302 @@
+fileFormatVersion: 2
+guid: e87dff984c883944598f32eec12c215d
+timeCreated: 1507736231
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone.Foot.L
+    100004: Bone.Foot.R
+    100006: Bone.Head
+    100008: Bone.Head_end
+    100010: Bone.IK.L
+    100012: Bone.IK.L_end
+    100014: Bone.IK.R
+    100016: Bone.IK.R_end
+    100018: Bone.LowerArm.L
+    100020: Bone.LowerArm.L_end
+    100022: Bone.LowerArm.R
+    100024: Bone.LowerArm.R_end
+    100026: Bone.LowerBody
+    100028: Bone.LowerLeg.L
+    100030: Bone.LowerLeg.R
+    100032: Bone.Pelvis.L
+    100034: Bone.Pelvis.R
+    100036: Bone.PoleTarget.L
+    100038: Bone.PoleTarget.L_end
+    100040: Bone.PoleTarget.R
+    100042: Bone.PoleTarget.R_end
+    100044: Bone.Root
+    100046: Bone.Shoulder.L
+    100048: Bone.Shoulder.R
+    100050: Bone.Toes.L
+    100052: Bone.Toes.L_end
+    100054: Bone.Toes.R
+    100056: Bone.Toes.R_end
+    100058: Bone.UpperArm.L
+    100060: Bone.UpperArm.R
+    100062: Bone.UpperBody
+    100064: Bone.UpperLeg.L
+    100066: Bone.UpperLeg.R
+    100068: Cube
+    100070: //RootNode
+    400000: Armature
+    400002: Bone.Foot.L
+    400004: Bone.Foot.R
+    400006: Bone.Head
+    400008: Bone.Head_end
+    400010: Bone.IK.L
+    400012: Bone.IK.L_end
+    400014: Bone.IK.R
+    400016: Bone.IK.R_end
+    400018: Bone.LowerArm.L
+    400020: Bone.LowerArm.L_end
+    400022: Bone.LowerArm.R
+    400024: Bone.LowerArm.R_end
+    400026: Bone.LowerBody
+    400028: Bone.LowerLeg.L
+    400030: Bone.LowerLeg.R
+    400032: Bone.Pelvis.L
+    400034: Bone.Pelvis.R
+    400036: Bone.PoleTarget.L
+    400038: Bone.PoleTarget.L_end
+    400040: Bone.PoleTarget.R
+    400042: Bone.PoleTarget.R_end
+    400044: Bone.Root
+    400046: Bone.Shoulder.L
+    400048: Bone.Shoulder.R
+    400050: Bone.Toes.L
+    400052: Bone.Toes.L_end
+    400054: Bone.Toes.R
+    400056: Bone.Toes.R_end
+    400058: Bone.UpperArm.L
+    400060: Bone.UpperArm.R
+    400062: Bone.UpperBody
+    400064: Bone.UpperLeg.L
+    400066: Bone.UpperLeg.R
+    400068: Cube
+    400070: //RootNode
+    4300000: Cube
+    7400000: Die
+    7400002: Idle
+    7400004: MeleeAttack
+    7400006: Walk
+    7400008: Dead
+    9500000: //RootNode
+    13700000: Cube
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Die
+      takeName: Armature|Die
+      firstFrame: 33
+      lastFrame: 33
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: MeleeAttack
+      takeName: Armature|MeleeAttack
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Armature|Walk
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dead
+      takeName: Armature|Die
+      firstFrame: 32
+      lastFrame: 33
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,6 +12,7 @@ public class EnemyBase : MonoBehaviour {
     [SerializeField] protected float movementSpeed = 2.0f;
     [SerializeField] protected float turnSpeed = 120.0f;
     protected NavMeshAgent navMesh;
+    protected Animator animator;
 
     [Header("Damageable")]
     [SerializeField] protected float maximumHealth;
@@ -23,6 +24,7 @@ public class EnemyBase : MonoBehaviour {
         navMesh = GetComponent<NavMeshAgent>();
         navMesh.speed = movementSpeed;
         navMesh.angularSpeed = turnSpeed;
+        animator = GetComponentInChildren<Animator>();
     }
 
     public virtual void MonitorAwareness() { }

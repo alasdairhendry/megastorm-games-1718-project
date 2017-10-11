@@ -12,15 +12,15 @@ public class WeaponMiniGun : WeaponBase {
     }
 
     private void Update()
-    {        
+    {
+        rateOfFireCounter += Time.deltaTime;
+
         if (Input.GetMouseButton(0)) 
             Fire();
     }
 
     public override void Fire()
     {
-        rateOfFireCounter += Time.deltaTime;
-
         if (currentClipAmount > 0)
         {
             if (rateOfFireCounter >= baseRateOfFire)
@@ -43,6 +43,9 @@ public class WeaponMiniGun : WeaponBase {
 
         Vector3 direction = GameObject.Find("Crosshair_Prefab").transform.position - bullet.transform.position;
         bullet.transform.rotation = Quaternion.LookRotation(direction);
+
+        Bullet bulletClass = bullet.GetComponent<Bullet>();
+        bulletClass.Init(Vector3.zero, 15, 5);
 
         currentClipAmount -= 1;
     }
