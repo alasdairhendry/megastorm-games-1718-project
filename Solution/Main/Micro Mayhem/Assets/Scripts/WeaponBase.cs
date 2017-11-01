@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class WeaponBase : MonoBehaviour {
 
     [SerializeField] protected string weaponName;
+    public string GetName { get { return weaponName; } }
 
     [SerializeField] protected float baseDamage;
     [SerializeField] protected float baseRateOfFire;
@@ -25,10 +27,12 @@ public class WeaponBase : MonoBehaviour {
     [SerializeField] protected float reloadingTime = 2.0f;
     [SerializeField] protected bool isReloading = false;
 
+    [SerializeField] private GameObject HUD;
+    public GameObject GetHud { get { return HUD; } }
+
     public virtual void Fire() { }
 
     public virtual void Shoot() { }
 
     public virtual IEnumerator Reload() { yield return null; }
-
 }

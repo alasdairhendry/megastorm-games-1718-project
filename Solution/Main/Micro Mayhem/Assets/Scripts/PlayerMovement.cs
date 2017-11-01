@@ -5,16 +5,18 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     private Animator animator;
+    new private Rigidbody rigidbody;
 
     [SerializeField] private LayerMask rotationRayMask;
     [SerializeField] private GameObject upperRotationalBone;
-    [SerializeField] private float movementSpeed = 15.0f;
+    [SerializeField] private float movementSpeed = 15.0f;    
 
     [SerializeField] private GameObject crosshair;
 
 	// Use this for initialization
 	void Start () {
         animator = GetComponentInChildren<Animator>();
+        rigidbody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -28,7 +30,8 @@ public class PlayerMovement : MonoBehaviour {
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        transform.position += new Vector3(horizontalInput, 0.0f, verticalInput).normalized * movementSpeed * Time.deltaTime;
+        //transform.position += new Vector3(horizontalInput, 0.0f, verticalInput).normalized * movementSpeed * Time.deltaTime;
+        rigidbody.velocity = new Vector3(horizontalInput, 0.0f, verticalInput).normalized * movementSpeed * Time.deltaTime;
 
         animator.SetFloat("ForwardMotion", verticalInput);
         animator.SetFloat("SidewardMotion", horizontalInput);
@@ -43,8 +46,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             float angle = Mathf.Atan2(hit.point.z - transform.position.z, hit.point.x - transform.position.x) * Mathf.Rad2Deg - 90;
             if (angle < 0)
-                angle += 360;
-            //print(angle + " - " + hit.point);
+                angle += 360;            
 
             upperRotationalBone.transform.eulerAngles = new Vector3(upperRotationalBone.transform.eulerAngles.x, -angle, upperRotationalBone.transform.eulerAngles.z);
         }
@@ -53,17 +55,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             crosshair.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
             crosshair.transform.position += crosshair.transform.InverseTransformDirection(crosshair.transform.Find("Graphics").forward).normalized * 0.1f;
-            //print(crosshair.transform.InverseTransformDirection(crosshair.transform.Find("Graphics").forward));
-
-            //crosshair.transform.position += transform.Find("Graphics").forward.normalized * 1.0f;
-            //print(transform.Find("Graphics").forward.normalized);
-
-            //Debug.DrawRay(hit.point, hit.normal);
 
             Quaternion newRot = Quaternion.LookRotation(hit.normal);
-            crosshair.transform.Find("Graphics").rotation = Quaternion.Slerp(crosshair.transform.Find("Graphics").rotation, newRot, Time.deltaTime * 5.0f);
-
-            //crosshair.transform.Find("Graphics").rotation = Quaternion.LookRotation(hit.normal);                  
+            crosshair.transform.Find("Graphics").rotation = Quaternion.Slerp(crosshair.transform.Find("Graphics").rotation, newRot, Time.deltaTime * 5.0f);            
         }
     }
 }
