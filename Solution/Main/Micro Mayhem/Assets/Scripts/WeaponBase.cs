@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class WeaponBase : MonoBehaviour {
@@ -27,12 +28,17 @@ public class WeaponBase : MonoBehaviour {
     [SerializeField] protected float reloadingTime = 2.0f;
     [SerializeField] protected bool isReloading = false;
 
-    [SerializeField] private GameObject HUD;
-    public GameObject GetHud { get { return HUD; } }
+    [SerializeField] private Sprite icon;
+    public Sprite GetIcon { get { return icon; } }
 
     public virtual void Fire() { }
 
     public virtual void Shoot() { }
+
+    public virtual void SendAmmoData(Text target)
+    {
+        target.text = "0 / 0";
+    }
 
     public virtual IEnumerator Reload() { yield return null; }
 }

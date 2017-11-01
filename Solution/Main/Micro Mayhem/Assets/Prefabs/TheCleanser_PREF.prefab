@@ -19,7 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4280206383103892}
-  - component: {fileID: 114878660263586258}
+  - component: {fileID: 114546468495095496}
+  - component: {fileID: 136613919757169492}
   m_Layer: 0
   m_Name: TheCleanser_PREF
   m_TagString: Untagged
@@ -172,7 +173,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965620564166828}
   m_Mesh: {fileID: 4300000, guid: e71154a6fb4e2304089a4e8e363b57bb, type: 3}
---- !u!114 &114878660263586258
+--- !u!114 &114546468495095496
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -180,19 +181,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1081006204335868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9d4aad5c3f44d2468842e12a90b5b62, type: 3}
+  m_Script: {fileID: 11500000, guid: 349b7066b5f65d84c95b1ca7a4a6f64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Mini Gun
-  baseDamage: 1
-  baseRateOfFire: 0.1
-  fireType: 1
-  ammoType: 0
-  totalAmmo: -1
-  clipCapacity: 30
-  currentClipAmount: 30
+  weaponName: Cleanser
+  baseDamage: 10
+  baseRateOfFire: 4
+  fireType: 0
+  ammoType: 1
+  totalAmmo: 0
+  clipCapacity: 100
+  currentClipAmount: 100
   ammo: {fileID: 1726457554263382, guid: 03f51a62b4dd795438d8a7d9b9f2d665, type: 2}
   reloadingTime: 2
   isReloading: 0
-  HUD: {fileID: 0}
+  icon: {fileID: 21300000, guid: df3bac9188c63fe469c0498269c7942e, type: 3}
   shootPoint: {fileID: 0}
+  ammoHUDTarget: {fileID: 0}
+--- !u!136 &136613919757169492
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081006204335868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.12
+  m_Height: 0.37
+  m_Direction: 2
+  m_Center: {x: -0.05, y: 0, z: 0.33}

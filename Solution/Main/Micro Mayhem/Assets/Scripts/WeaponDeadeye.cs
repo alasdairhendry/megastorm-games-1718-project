@@ -3,35 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponMiniGun : WeaponBase {
+public class WeaponDeadeye : WeaponBase {
 
     [SerializeField] Transform shootPoint;
-    [SerializeField] private Text ammoHUDTarget;
+    [SerializeField] private Text ammoHUDTarget = null;
 
     private void Start()
     {
         shootPoint = transform.Find("Shootpoint");
-        ammoHUDTarget = GameObject.Find("WeaponryCanvas").transform.Find("PrimaryWeapon").Find("Ammo").GetComponent<Text>();
     }
 
     private void Update()
     {
         rateOfFireCounter += Time.deltaTime;
 
-        if (Input.GetMouseButton(0)) 
+        if (Input.GetMouseButton(1))
             Fire();
     }
 
     public override void SendAmmoData(Text target)
     {
-        if (!isReloading)
-        {
-            target.text = base.currentClipAmount + " / " + base.clipCapacity;
-        }
-        else
-        {
-            target.text = "Reloading...";
-        }
+        target.text = base.currentClipAmount + " / " + base.clipCapacity;
+
+        if (ammoHUDTarget == null)
+            ammoHUDTarget = target;
     }
 
     public override void Fire()
@@ -70,14 +65,19 @@ public class WeaponMiniGun : WeaponBase {
     public override IEnumerator Reload()
     {
         isReloading = true;
-        SendAmmoData(ammoHUDTarget);
+
+        if (totalAmmo == 0)
+        {
+            GameObject.FindObjectOfType<PlayerAttack>().DropSecondary();
+        }
+
         yield return new WaitForSeconds(reloadingTime);
-        
-        if(totalAmmo == -1)
+
+        if (totalAmmo == -1)    // -1 total ammo indicates that the gun has an unlimited supply of ammo clips
         {
             currentClipAmount = clipCapacity;
         }
-        else
+        else    // If the total ammo doesnt equal -1, then we have a finite amount of clips we can use. Set total ammo to 0 to make a "one clip" weapon
         {
             if (totalAmmo < clipCapacity)
             {
@@ -92,6 +92,5 @@ public class WeaponMiniGun : WeaponBase {
         }
 
         isReloading = false;
-        SendAmmoData(ammoHUDTarget);
     }
 }

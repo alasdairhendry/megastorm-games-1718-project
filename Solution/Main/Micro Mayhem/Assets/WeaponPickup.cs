@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour
 {
-
     [SerializeField] private GameObject weaponPrefab;
 
     private void Start()
