@@ -65,11 +65,14 @@ public class WeaponMiniGun : WeaponBase {
         bulletClass.Init(Vector3.zero, 15, 5);
 
         currentClipAmount -= 1;
+        GetComponent<AudioSource>().Play();
     }
 
     public override IEnumerator Reload()
     {
         isReloading = true;
+        SoundEffectManager.singleton.Play2DSound(reloadSound, false, 0.0f, 1.0f);
+        GameObject.FindObjectOfType<PlayerAttack>().GetComponentInChildren<Animator>().SetTrigger("Reload");
         SendAmmoData(ammoHUDTarget);
         yield return new WaitForSeconds(reloadingTime);
         

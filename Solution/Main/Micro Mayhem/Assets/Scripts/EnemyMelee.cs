@@ -47,7 +47,7 @@ public class EnemyMelee : EnemyBase, IDamageable
     }
 
     public override void MonitorAwareness()
-    {
+    {        
         if(isDead)
         { navMesh.isStopped = true; return; }
 

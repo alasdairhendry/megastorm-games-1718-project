@@ -57,7 +57,7 @@ public class WeaponDeadeye : WeaponBase {
         bullet.transform.rotation = Quaternion.LookRotation(direction);
 
         Bullet bulletClass = bullet.GetComponent<Bullet>();
-        bulletClass.Init(Vector3.zero, 15, 5);
+        bulletClass.Init(Vector3.zero, 15, baseDamage);
 
         currentClipAmount -= 1;
     }

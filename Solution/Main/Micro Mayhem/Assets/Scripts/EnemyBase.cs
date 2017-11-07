@@ -16,7 +16,7 @@ public class EnemyBase : MonoBehaviour {
 
     [Header("Damageable")]
     [SerializeField] protected float maximumHealth;
-    protected float currentHealth;
+    [SerializeField] protected float currentHealth;
 
     protected virtual void Start()
     {

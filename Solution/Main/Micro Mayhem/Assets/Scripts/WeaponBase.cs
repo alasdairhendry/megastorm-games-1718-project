@@ -31,6 +31,9 @@ public class WeaponBase : MonoBehaviour {
     [SerializeField] private Sprite icon;
     public Sprite GetIcon { get { return icon; } }
 
+    [SerializeField] protected List<AudioClip> sounds = new List<AudioClip>();
+    [SerializeField] protected AudioClip reloadSound;
+
     public virtual void Fire() { }
 
     public virtual void Shoot() { }

@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    private Vector3 initialVelocity;
-    private float speed;
-    private float damage;
+    protected Vector3 initialVelocity;
+    protected float speed;
+    protected float damage;
 
-    public void Init(Vector3 _initialVelocity, float _speed, float _damage)
+    public virtual void Init(Vector3 _initialVelocity, float _speed, float _damage)
     {
         initialVelocity = _initialVelocity;
         speed = _speed;
         damage = _damage;
     }
 
-	void Start () {
+    protected virtual void Start () {
         transform.position += transform.InverseTransformDirection(initialVelocity) * Time.deltaTime;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    protected virtual void Update () {
         transform.position += transform.forward * Time.deltaTime * speed;
 	}
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<IDamageable>() != null)
         {
@@ -32,8 +32,8 @@ public class Bullet : MonoBehaviour {
 
             if (other.GetComponent<IDamageable>().ImpactParticle != null)
             {
-                GameObject particle = Instantiate(other.GetComponent<IDamageable>().ImpactParticle);
-                particle.transform.position = this.transform.position;
+                //GameObject particle = Instantiate(other.GetComponent<IDamageable>().ImpactParticle);
+                //particle.transform.position = this.transform.position;
             }
 
             Destroy(this.gameObject);
