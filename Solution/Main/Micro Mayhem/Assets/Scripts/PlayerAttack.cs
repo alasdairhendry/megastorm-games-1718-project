@@ -83,13 +83,23 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
     public void DropSecondary()
     {
         if(weapons.Count == 2)
-        {
-            secondaryMountPoint.transform.GetChild(0).gameObject.AddComponent<Rigidbody>();
-            secondaryMountPoint.transform.GetChild(0).parent = null;            
+        {                     
             weapons[1] = null;
             secondaryWeaponGUIContainer.transform.parent.GetComponent<Animator>().SetBool("SecondaryWeapon", false);
             animator.SetBool("SecondaryWeapon", false);
+            StartCoroutine(DropSecondaryModel());
+            weapons.RemoveAt(1);
         }
+    }
+
+    private IEnumerator DropSecondaryModel()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        GameObject secondaryWeapon = secondaryMountPoint.transform.GetChild(0).gameObject;
+        secondaryWeapon.AddComponent<Rigidbody>();
+        secondaryWeapon.GetComponent<Rigidbody>().AddForce(Vector3.up * 15.0f, ForceMode.Impulse);
+        secondaryWeapon.transform.parent = null;
     }
 
     // Use this for initialization

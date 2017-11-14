@@ -8,8 +8,8 @@ public class TEST_ParticleAttractor : MonoBehaviour {
     ParticleSystem.Particle[] particleList = new ParticleSystem.Particle[1000];
 
 	// Use this for initialization
-	void Start () {
-		
+	public void Init (ParticleSystem _target) {
+        target = _target;
 	}
 	
 	// Update is called once per frame
@@ -20,10 +20,15 @@ public class TEST_ParticleAttractor : MonoBehaviour {
         {
             ParticleSystem.Particle particle = particleList[i];      
             
-            particle.position = Vector3.Lerp(particle.position, this.transform.position, Time.deltaTime * 2.0f);
+            particle.position = Vector3.Lerp(particle.position, this.transform.position, Time.deltaTime * 1.0f);
             particleList[i] = particle;
         }
 
         target.SetParticles(particleList, count);
 	}
+
+    private void OnDestroy()
+    {
+        Destroy(target.gameObject);
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
     [SerializeField] private GameObject[] weaponPrefabs;
-    private GameObject weaponPrefab;
+    [SerializeField] private GameObject weaponPrefab;
 
     private void Start()
     {
@@ -15,14 +15,14 @@ public class WeaponPickup : MonoBehaviour
 
     private void PickWeapon()
     {
-        weaponPrefab = weaponPrefabs[Random.Range(0, weaponPrefabs.Length - 1)];        
+        weaponPrefab = weaponPrefabs[Random.Range(0, weaponPrefabs.Length)];        
     }
 
     private void SetDisplay()
     {
         GetComponentInChildren<TextMesh>().text = weaponPrefab.GetComponent<WeaponBase>().GetName;
 
-        Transform children = transform.Find("Graphics");
+        Transform children = transform.Find("Graphics").Find("Weapons");
         foreach (Transform child in children)
         {
             if(child.name == weaponPrefab.GetComponent<WeaponBase>().GetName)
