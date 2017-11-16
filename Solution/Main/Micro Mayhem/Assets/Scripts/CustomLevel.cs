@@ -31,8 +31,6 @@ public class CustomLevel : MonoBehaviour
             if (actor.stub.Contains("(Clone)"))
                 actor.stub = actor.stub.Substring(0, actor.stub.Length - 7);
 
-            print(actor.stub);
-
             GameObject act = Instantiate(Resources.Load("LevelActors/" + actor.stub)) as GameObject;
             act.transform.parent = this.transform.Find("Regenerated");
             act.transform.position = actor.location;

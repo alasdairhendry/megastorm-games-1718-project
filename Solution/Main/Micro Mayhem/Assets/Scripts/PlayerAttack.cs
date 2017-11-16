@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour, IDamageable {
@@ -27,10 +28,12 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
     void IDamageable.Die()
     {
         Debug.Log("Dead");
+        SceneManager.LoadScene(0);
     }
 
     void IDamageable.TakeDamage(float damage)
     {
+        DamageFloaters.singleton.AddFloater(damage.ToString(), Color.red, this.transform, new Vector3(0, 1.5f, -1.0f), 1);
         ((IDamageable)this).CurrentHealth -= damage;
 
         if (((IDamageable)this).CurrentHealth <= 0)

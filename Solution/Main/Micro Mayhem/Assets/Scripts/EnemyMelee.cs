@@ -25,6 +25,7 @@ public class EnemyMelee : EnemyBase, IDamageable
 
     void IDamageable.TakeDamage(float damage)
     {
+        AddDamageFloater(damage.ToString());
         ((IDamageable)this).CurrentHealth -= damage;
         print(damage);
 
@@ -39,8 +40,9 @@ public class EnemyMelee : EnemyBase, IDamageable
         player = GameObject.FindObjectOfType<PlayerMovement>().gameObject;        
     }
 
-    private void Update()
-    {   
+    private new void Update()
+    {
+        base.Update();
         MonitorAwareness();
         MonitorAttack();
         MonitorDeath();
@@ -92,8 +94,7 @@ public class EnemyMelee : EnemyBase, IDamageable
         if(timeUntilNextAttack >= attackInterval)
         {
             timeUntilNextAttack = 0.0f;
-            Attack();
-            animator.SetTrigger("Attack");
+            Attack();     
         }
     }
 
@@ -127,6 +128,13 @@ public class EnemyMelee : EnemyBase, IDamageable
 
     public override void Attack()
     {
-        player.GetComponent<IDamageable>().TakeDamage(1);
+        animator.SetTrigger("Attack");
+        Invoke("ApplyDamage", 1.0f);
+ 
+    }
+
+    private void ApplyDamage()
+    {
+        player.GetComponent<IDamageable>().TakeDamage(damage);
     }
 }

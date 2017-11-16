@@ -18,6 +18,8 @@ public class EnemyBase : MonoBehaviour {
     [SerializeField] protected float maximumHealth;
     [SerializeField] protected float currentHealth;
 
+    [SerializeField] protected float damage;
+
     protected virtual void Start()
     {
         currentHealth = maximumHealth;
@@ -31,7 +33,7 @@ public class EnemyBase : MonoBehaviour {
 
     public virtual void MonitorAttack() { }
 
-    public virtual void Attack() { }
+    public virtual void Attack() { }    
 
     public void OnDrawGizmosSelected()
     {
@@ -40,5 +42,49 @@ public class EnemyBase : MonoBehaviour {
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
+    }
+
+    protected void Update()
+    {
+        MonitorDamageFloaters();
+    }
+
+    private float damageFloatersMinWait = 0.15f;
+    private float damageFloaterCurrCounter = 0.0f;
+
+    private List<string> currentFloaters = new List<string>();
+
+    private void MonitorDamageFloaters()
+    {
+        damageFloaterCurrCounter += Time.deltaTime;
+
+        if(damageFloaterCurrCounter >= damageFloatersMinWait)
+        {
+            SendDamageFloaters();
+            damageFloaterCurrCounter = 0.0f;
+        }
+    }
+
+    private void SendDamageFloaters()
+    {
+        float allDamage = 0.0f;
+
+        foreach (string floater in currentFloaters)
+        {
+            allDamage += float.Parse(floater);            
+        }
+
+        if (allDamage != 0)
+            DamageFloaters.singleton.AddFloater(allDamage.ToString("00"), Color.yellow, this.transform, new Vector3(0.0f, 2.0f, -1.0f), 1);
+
+        currentFloaters.Clear();
+    }
+
+    protected void AddDamageFloater(string text)
+    {
+        if (currentFloaters.Count == 0)
+            damageFloaterCurrCounter = 0;
+
+        currentFloaters.Add(text);
     }
 }

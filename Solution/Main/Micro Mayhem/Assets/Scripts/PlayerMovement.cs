@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if(Physics.Raycast(ray, out hit))
         {
+            print(hit.collider.gameObject.name);
             crosshair.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
             crosshair.transform.position += crosshair.transform.InverseTransformDirection(crosshair.transform.Find("Graphics").forward).normalized * 0.1f;
 

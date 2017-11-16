@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Cleanser
-  baseDamage: 0.05
+  baseDamage: 0.25
   baseRateOfFire: 4
   fireType: 0
   ammoType: 1

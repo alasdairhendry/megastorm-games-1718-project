@@ -13,8 +13,10 @@ public class Billboard : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 lookPosition = target.transform.position - transform.position;        
+        Vector3 lookPosition = target.transform.position - transform.position;
+
         lookPosition.y = 0;
+
         Quaternion rotation = Quaternion.LookRotation(lookPosition);
         //transform.localRotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5.0f);
 	}

@@ -43,7 +43,7 @@ public class BlasterAmmo : Bullet {
                 Vector3 direction = hit.collider.gameObject.transform.position - this.transform.position;
                 float positionDeficit = Mathf.Lerp(1.0f, 0.0f, Vector3.Distance(this.transform.position, hit.collider.gameObject.transform.position) / 5.5f);
                 print("PositionDeficit" + positionDeficit);
-                hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(direction * positionDeficit * 5.0f, ForceMode.Impulse);
+                hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(direction * positionDeficit * 5.0f, ForceMode.VelocityChange);
 
                 if(hit.collider.gameObject.GetComponent<IDamageable>() != null)
                 {

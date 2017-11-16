@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTank : EnemyBase, IDamageable {
+public class EnemyBoom : EnemyBase, IDamageable {
 
     float IDamageable.MaximumHealth { get { return base.maximumHealth; } set { base.maximumHealth = value; } }
     float IDamageable.CurrentHealth { get { return base.currentHealth; } set { base.currentHealth = value; } }
@@ -11,19 +11,19 @@ public class EnemyTank : EnemyBase, IDamageable {
     GameObject IDamageable.ImpactParticle { get { return impactParticle; } }
 
     private GameObject player;
-    private float timeUntilNextAttack = 6.0f;
+    private float timeUntilNextAttack = 0.0f;
 
-    private bool isDying = false;
-    private bool isDead = false;
+    [SerializeField] private bool isDying = false;
+     [SerializeField] private bool isDead = false;
 
     void IDamageable.Die()
-    {
-        //animator.SetTrigger("Die");
+    {        
         isDying = true;
     }
 
     void IDamageable.TakeDamage(float damage)
     {
+        AddDamageFloater(damage.ToString());
         ((IDamageable)this).CurrentHealth -= damage;
         print(damage);
 
@@ -38,8 +38,9 @@ public class EnemyTank : EnemyBase, IDamageable {
         player = GameObject.FindObjectOfType<PlayerMovement>().gameObject;
     }
 
-    private void Update()
+    private new void Update()
     {
+        base.Update();
         MonitorAwareness();
         MonitorAttack();
         MonitorDeath();
@@ -47,38 +48,32 @@ public class EnemyTank : EnemyBase, IDamageable {
 
     public override void MonitorAwareness()
     {
-        if (isDead)
+        if (isDead || isDying)
         { navMesh.isStopped = true; return; }
 
         float dist = Vector3.Distance(transform.position, player.transform.position);
 
-        // If this enemy is aware of the player
         if (dist <= awarenessRadius)
         {
-            navMesh.SetDestination(player.transform.position);  // Set the target destination to the players location
-            RotateToTarget();   // Continue to look at the player
-            animator.SetBool("inSight", true);
-            animator.SetBool("isWalking", true);    // Ensure the enemy is animated to walk
+            navMesh.SetDestination(player.transform.position);
+            RotateToTarget();
+            animator.SetBool("isWalking", true);
 
-            if (dist >= attackRadius)   // If the player is outside attack range
+            if (dist >= attackRadius)
             {
-                // Resume moving
-                navMesh.isStopped = false;              
+                navMesh.isStopped = false;
                 animator.SetBool("isWalking", true);
             }
             else
             {
-                // Stop moving
                 navMesh.isStopped = true;
-                //animator.SetBool("inSight", false);
                 animator.SetBool("isWalking", false);
             }
         }
-        else    // This enemy is too far away from the player
-        {            
-            navMesh.ResetPath();    // Reset the path to null
-            animator.SetBool("inSight", false);
-            animator.SetBool("isWalking", false);   // Stop walking animation
+        else
+        {
+            navMesh.ResetPath();
+            animator.SetBool("isWalking", false);
         }
     }
 
@@ -99,23 +94,15 @@ public class EnemyTank : EnemyBase, IDamageable {
             timeUntilNextAttack = 0.0f;
             Attack();
             animator.SetTrigger("Attack");
-            foreach (ParticleSystem p in attackParticles)
-            {
-                p.Play();
-            }
         }
     }
-    [SerializeField] private ParticleSystem[] attackParticles;
 
     private void MonitorDeath()
     {
         if (isDying)
         {
-            //if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
-            //{
-                isDead = true;
-                StartCoroutine(DestroyThis(1));
-            //}
+            isDead = true;
+            StartCoroutine(DestroyThis(1.7f));
         }
     }
 
@@ -137,6 +124,26 @@ public class EnemyTank : EnemyBase, IDamageable {
 
     public override void Attack()
     {
-        player.GetComponent<IDamageable>().TakeDamage(1);
+        StartCoroutine(DoAttackDamage());   // Wait for attack animation to finish before applying damage
+        isDying = true;
+    }
+
+    private IEnumerator DoAttackDamage()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        RaycastHit[] hits = Physics.SphereCastAll(this.transform.position, 10, Vector3.up);
+
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.gameObject == this.gameObject)
+                continue;
+
+            if (hit.collider.gameObject.GetComponent<IDamageable>() != null)
+            {
+                print("found");
+                hit.collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
+            }
+        }
     }
 }

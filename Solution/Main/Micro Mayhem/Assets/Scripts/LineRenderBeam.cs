@@ -9,12 +9,15 @@ public class LineRenderBeam : MonoBehaviour {
     private ParticleSystem endParticles;
     private LineRenderer lineRenderer;
 
+    private Vector3 centreOfMass = new Vector3();
+
     [SerializeField] private bool active = false;
 
 	// Use this for initialization
 	void Start () {
         targetFinder = transform.Find("targetFinder");
         lineRenderer = GetComponent<LineRenderer>();
+        
 	}
 	
 	// Update is called once per frame
@@ -30,7 +33,10 @@ public class LineRenderBeam : MonoBehaviour {
         CalculateMidPointLocal();
         //FollowTarget();
         SetParticles();
-	}
+
+        if (target != null)
+            centreOfMass = target.GetComponent<Rigidbody>().worldCenterOfMass;
+    }
 
     private void CalculateVertices()
     {
@@ -85,7 +91,7 @@ public class LineRenderBeam : MonoBehaviour {
         if (target == null || targetFinder == null)
             Destroy(gameObject);
 
-        targetFinder.transform.position = Vector3.Lerp(targetFinder.transform.position, target.position, Time.deltaTime * 15.0f);
+        targetFinder.transform.position = Vector3.Lerp(targetFinder.transform.position, centreOfMass, Time.deltaTime * 15.0f);
     }
 
     private void SetParticles()
