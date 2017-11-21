@@ -17,6 +17,9 @@ public class Floater : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameState.singleton.IsPaused)
+            return;
+
         lifeTime -= Time.deltaTime;
 
         if(lifeTime<= 0)

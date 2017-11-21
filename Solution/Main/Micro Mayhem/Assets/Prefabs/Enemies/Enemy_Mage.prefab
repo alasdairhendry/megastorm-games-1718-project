@@ -994,14 +994,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1001750009651600}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.47, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4847419979936252}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4552398724978214
 Transform:
   m_ObjectHideFlags: 1
@@ -1313,11 +1313,14 @@ MonoBehaviour:
   attackInterval: 2
   movementSpeed: 2
   turnSpeed: 120
-  maximumHealth: 150
+  maximumHealth: 100
   currentHealth: 0
   damage: 10
-  projectilePrefab: {fileID: 1670108696517738, guid: ba89cec94f812b945ab3ce757e5434ae,
-    type: 2}
+  entityType: enemy
+  projectilePrefabs:
+  - {fileID: 1670108696517738, guid: ba89cec94f812b945ab3ce757e5434ae, type: 2}
+  - {fileID: 1670108696517738, guid: ba89cec94f812b945ab3ce757e5434ae, type: 2}
+  - {fileID: 1524847806004612, guid: e0879902405b1884fa5004f012a36962, type: 2}
   shootPoint: {fileID: 1275166521981852}
   impactParticle: {fileID: 0}
   findingClosestPoint: 0

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4867137148071258}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall_Straight_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33525486826782932}
   - component: {fileID: 23268023329051030}
   - component: {fileID: 64732905181376406}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall_Straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

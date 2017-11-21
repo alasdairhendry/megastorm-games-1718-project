@@ -17,11 +17,14 @@ public class LineRenderBeam : MonoBehaviour {
 	void Start () {
         targetFinder = transform.Find("targetFinder");
         lineRenderer = GetComponent<LineRenderer>();
-        
+        //print("I HAVE SPAWNED");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameState.singleton.IsPaused)
+            return;
+
         if (!active)
             return;
 
@@ -117,5 +120,11 @@ public class LineRenderBeam : MonoBehaviour {
     {
         active = false;
         lineRenderer.positionCount = 0;
+        //print("I HAVE STOPPED");
+    }
+
+    private void OnDestroy()
+    {
+        //print("I HAVE BEEN DESTROYED");
     }
 }

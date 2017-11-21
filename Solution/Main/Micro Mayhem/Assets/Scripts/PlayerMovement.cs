@@ -9,12 +9,14 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private LayerMask rotationRayMask;
     [SerializeField] private GameObject upperRotationalBone;
-    [SerializeField] private float movementSpeed = 15.0f;    
+    [SerializeField] private float movementSpeed = 15.0f; 
+    public float MovementSpeed { get { return movementSpeed; } set { movementSpeed = value; } }
 
     [SerializeField] private GameObject crosshair;
 
 	// Use this for initialization
 	void Start () {
+        Physics.autoSimulation = true;
         animator = GetComponentInChildren<Animator>();
         rigidbody = GetComponent<Rigidbody>();
 	}
@@ -22,17 +24,26 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     private void FixedUpdate()
     {
+        if (GameState.singleton.IsPaused)
+        {
+            rigidbody.velocity = Vector3.zero;
+            return;
+        }
+
         LowerBodyMovement();
     }
 
-    void Update () {        
+    void Update () {
+        if (GameState.singleton.IsPaused)
+            return;
+
         UpperBodyMovement();
 	}
 
     private void LowerBodyMovement()
     {
         float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxis("Horizontal");        
 
         //transform.position += new Vector3(horizontalInput, 0.0f, verticalInput).normalized * movementSpeed * Time.deltaTime;
         rigidbody.velocity = new Vector3(horizontalInput, 0.0f, verticalInput).normalized * movementSpeed * Time.deltaTime;
@@ -57,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if(Physics.Raycast(ray, out hit))
         {
-            print(hit.collider.gameObject.name);
+            //print(hit.collider.gameObject.name);
             crosshair.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
             crosshair.transform.position += crosshair.transform.InverseTransformDirection(crosshair.transform.Find("Graphics").forward).normalized * 0.1f;
 

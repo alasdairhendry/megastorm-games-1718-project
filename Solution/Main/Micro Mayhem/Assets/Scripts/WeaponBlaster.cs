@@ -16,6 +16,12 @@ public class WeaponBlaster : WeaponBase {
 
     private void Update()
     {
+        if (GameState.singleton.IsPaused)
+            return;
+
+        if (!base.isActiveGun)
+            return;
+
         rateOfFireCounter += Time.deltaTime;
 
         if (Input.GetMouseButton(1))
@@ -75,6 +81,9 @@ public class WeaponBlaster : WeaponBase {
     {
         isReloading = true;
 
+        while (GameState.singleton.IsPaused)
+            yield return null;
+
         if (totalAmmo == 0)
         {
             GameObject.FindObjectOfType<PlayerAttack>().DropSecondary();
@@ -101,5 +110,13 @@ public class WeaponBlaster : WeaponBase {
         }
 
         isReloading = false;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.name=="Ground")
+        {
+            base.Crumble();
+        }
     }
 }

@@ -24,6 +24,9 @@ public class Sound2D : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameState.singleton.IsPaused)
+            return;
+
         delay -= Time.deltaTime;
 
         if(delay <= 0)

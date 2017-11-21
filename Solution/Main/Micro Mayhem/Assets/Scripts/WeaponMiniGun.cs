@@ -16,6 +16,9 @@ public class WeaponMiniGun : WeaponBase {
 
     private void Update()
     {
+        if (GameState.singleton.IsPaused)
+            return;
+
         rateOfFireCounter += Time.deltaTime;
 
         if (Input.GetMouseButton(0)) 
@@ -71,6 +74,10 @@ public class WeaponMiniGun : WeaponBase {
     public override IEnumerator Reload()
     {
         isReloading = true;
+
+        while (GameState.singleton.IsPaused)
+            yield return null;
+
         SoundEffectManager.singleton.Play2DSound(reloadSound, false, 0.0f, 1.0f);
         GameObject.FindObjectOfType<PlayerAttack>().GetComponentInChildren<Animator>().SetTrigger("Reload");
         SendAmmoData(ammoHUDTarget);

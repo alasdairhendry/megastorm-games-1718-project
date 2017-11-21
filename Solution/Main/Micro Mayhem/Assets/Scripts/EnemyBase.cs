@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,6 +20,9 @@ public class EnemyBase : MonoBehaviour {
     [SerializeField] protected float currentHealth;
 
     [SerializeField] protected float damage;
+    [SerializeField] protected string entityType = "enemy";
+
+    protected Action eventsOnDeath;
 
     protected virtual void Start()
     {
@@ -35,6 +39,12 @@ public class EnemyBase : MonoBehaviour {
 
     public virtual void Attack() { }    
 
+    public virtual void AddDeathEvent(Action _event)
+    {
+        if (_event != null)
+            eventsOnDeath += _event;
+    }
+
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -46,6 +56,9 @@ public class EnemyBase : MonoBehaviour {
 
     protected void Update()
     {
+        if (GameState.singleton.IsPaused)
+            return;
+
         MonitorDamageFloaters();
     }
 

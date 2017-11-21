@@ -22,11 +22,19 @@ public class BlasterAmmo : Bullet {
     // Update is called once per frame
     protected override void Update()
     {
+        if (GameState.singleton.IsPaused)
+            return;
+
         transform.position += transform.forward * Time.deltaTime * speed;
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.name == "Character" || other.gameObject.name == "Blaster_PREF(Clone)")
+        {
+            return;
+        }
+
         GameObject particle = Instantiate(particleEffect);
         particle.transform.position = this.transform.position + new Vector3(0, 0.5f, 0);
         Destroy(this.gameObject);        
@@ -38,18 +46,18 @@ public class BlasterAmmo : Bullet {
         
         foreach (RaycastHit hit in hits)
         {
-            if(hit.collider.gameObject.GetComponent<Rigidbody>() != null)
+            if (hit.collider.gameObject.GetComponent<Rigidbody>() != null)
             {
                 Vector3 direction = hit.collider.gameObject.transform.position - this.transform.position;
                 float positionDeficit = Mathf.Lerp(1.0f, 0.0f, Vector3.Distance(this.transform.position, hit.collider.gameObject.transform.position) / 5.5f);
-                print("PositionDeficit" + positionDeficit);
+
                 hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(direction * positionDeficit * 5.0f, ForceMode.VelocityChange);
 
-                if(hit.collider.gameObject.GetComponent<IDamageable>() != null)
+                if (hit.collider.gameObject.GetComponent<IDamageable>() != null)
                 {
                     hit.collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage * positionDeficit);
                 }
-            }
+            }            
         }
     }
 }

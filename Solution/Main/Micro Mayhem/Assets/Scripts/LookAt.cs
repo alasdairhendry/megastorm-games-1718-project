@@ -13,6 +13,12 @@ public class LookAt : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.LookAt(Camera.main.transform);
+        if (GameState.singleton.IsPaused)
+            return;
+
+        if (target == null)
+            transform.LookAt(Camera.main.transform);
+        else
+            transform.LookAt(target.transform);
 	}
 }

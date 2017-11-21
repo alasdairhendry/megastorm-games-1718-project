@@ -39,12 +39,27 @@ public class DamageFloaters : MonoBehaviour {
         _floater.transform.position = offset + _target.SetArea(_floater);
         //_floater.transform.localPosition = Vector3.zero;
         //_floater.transform.position += offset;
-        _floater.transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
+        float damage = float.Parse(text);
+        Vector3 scale = Vector3.Lerp(new Vector3(0.4f, 0.4f, 0.4f), new Vector3(1.2f, 1.2f, 1.2f), damage / 100.0f);
+        _floater.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
 
         _floater.GetComponentInChildren<TextMesh>().text = text;
         _floater.GetComponentInChildren<TextMesh>().transform.Find("Shadow").gameObject.GetComponent<Renderer>().material.color = Color.white;
 
         _floater.GetComponent<Floater>().Init(() => { /*Debug.Log("Killed Floater");*/ }, lifetime);
+    }
+
+    public void AddFloater(string text, Color colour, Transform target, float lifetime)
+    {       
+        GameObject _floater = Instantiate(floater);
+
+        _floater.transform.position = target.transform.position;
+        _floater.transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
+
+        _floater.GetComponentInChildren<TextMesh>().text = text;
+        _floater.GetComponentInChildren<TextMesh>().transform.Find("Shadow").gameObject.GetComponent<Renderer>().material.color = Color.white;
+
+        _floater.GetComponent<Floater>().Init(() => { }, lifetime);
     }
 
     private FloaterTarget CheckTargetExists(GameObject _target)

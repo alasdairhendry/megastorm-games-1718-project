@@ -14,6 +14,9 @@ public class TEST_ParticleAttractor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameState.singleton.IsPaused)
+            return;
+
         int count = target.GetParticles(particleList);
 
         for (int i = 0; i < count; i++)

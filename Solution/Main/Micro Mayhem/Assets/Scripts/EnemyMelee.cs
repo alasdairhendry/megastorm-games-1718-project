@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,6 +8,7 @@ public class EnemyMelee : EnemyBase, IDamageable
 {
     float IDamageable.MaximumHealth { get { return base.maximumHealth; } set { base.maximumHealth = value; } }
     float IDamageable.CurrentHealth { get { return base.currentHealth; } set { base.currentHealth = value; } }
+    string IDamageable.EntityType { get { return entityType; } set { entityType = value; } }
 
     [SerializeField] GameObject impactParticle;
     GameObject IDamageable.ImpactParticle { get { return impactParticle; } }
@@ -26,8 +28,7 @@ public class EnemyMelee : EnemyBase, IDamageable
     void IDamageable.TakeDamage(float damage)
     {
         AddDamageFloater(damage.ToString());
-        ((IDamageable)this).CurrentHealth -= damage;
-        print(damage);
+        ((IDamageable)this).CurrentHealth -= damage;        
 
         if (((IDamageable)this).CurrentHealth <= 0)
             ((IDamageable)this).Die();            
@@ -36,12 +37,18 @@ public class EnemyMelee : EnemyBase, IDamageable
     protected override void Start()
     {
         base.Start();
-        currentHealth = maximumHealth;
+        currentHealth = maximumHealth;            
         player = GameObject.FindObjectOfType<PlayerMovement>().gameObject;        
     }
 
     private new void Update()
     {
+        if (GameState.singleton.IsPaused)
+        {
+            navMesh.isStopped = true;
+            return;
+        }
+
         base.Update();
         MonitorAwareness();
         MonitorAttack();
@@ -98,6 +105,12 @@ public class EnemyMelee : EnemyBase, IDamageable
         }
     }
 
+    public override void AddDeathEvent(Action _event)
+    {
+        if (_event != null)
+            eventsOnDeath += _event;
+    }
+
     private void MonitorDeath()
     {
         if(isDying)
@@ -114,6 +127,12 @@ public class EnemyMelee : EnemyBase, IDamageable
     {
         yield return new WaitForSeconds(delay);
 
+        while (GameState.singleton.IsPaused)
+            yield return null;
+
+        if (eventsOnDeath != null)
+            eventsOnDeath();
+
         Destroy(gameObject);
     }
 
@@ -129,12 +148,16 @@ public class EnemyMelee : EnemyBase, IDamageable
     public override void Attack()
     {
         animator.SetTrigger("Attack");
-        Invoke("ApplyDamage", 1.0f);
- 
+        StartCoroutine(ApplyDamage());         
     }
 
-    private void ApplyDamage()
+    private IEnumerator ApplyDamage()
     {
+        yield return new WaitForSeconds(0.5f);
+
+        while (GameState.singleton.IsPaused)
+            yield return null;
+
         player.GetComponent<IDamageable>().TakeDamage(damage);
     }
 }

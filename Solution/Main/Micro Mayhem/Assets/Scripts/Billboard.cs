@@ -13,6 +13,9 @@ public class Billboard : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameState.singleton.IsPaused)
+            return;
+
         Vector3 lookPosition = target.transform.position - transform.position;
 
         lookPosition.y = 0;

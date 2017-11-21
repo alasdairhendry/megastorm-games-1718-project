@@ -15,6 +15,9 @@ public class WeaponDeadeye : WeaponBase {
 
     private void Update()
     {
+        if (GameState.singleton.IsPaused)
+            return;
+
         rateOfFireCounter += Time.deltaTime;
 
         if (Input.GetMouseButton(1))
@@ -65,6 +68,9 @@ public class WeaponDeadeye : WeaponBase {
     public override IEnumerator Reload()
     {
         isReloading = true;
+
+        while (GameState.singleton.IsPaused)
+            yield return null;
 
         if (totalAmmo == 0)
         {

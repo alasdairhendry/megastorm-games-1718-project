@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,8 +8,9 @@ public class EnemyMage : EnemyBase, IDamageable {
 
     float IDamageable.MaximumHealth { get { return base.maximumHealth; } set { base.maximumHealth = value; } }
     float IDamageable.CurrentHealth { get { return base.currentHealth; } set { base.currentHealth = value; } }
+    string IDamageable.EntityType { get { return entityType; } set { entityType = value; } }
 
-    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] List<GameObject> projectilePrefabs = new List<GameObject>();
     [SerializeField] GameObject shootPoint;
 
     [SerializeField] GameObject impactParticle;
@@ -30,7 +32,7 @@ public class EnemyMage : EnemyBase, IDamageable {
     {
         AddDamageFloater(damage.ToString());
         ((IDamageable)this).CurrentHealth -= damage;
-        print(damage);
+        //print(damage);
 
         if (((IDamageable)this).CurrentHealth <= 0)
             ((IDamageable)this).Die();
@@ -45,6 +47,9 @@ public class EnemyMage : EnemyBase, IDamageable {
 
     private new void Update()
     {
+        if (GameState.singleton.IsPaused)
+            return;
+
         base.Update();
         MonitorAwareness();
         MonitorAttack();
@@ -52,7 +57,7 @@ public class EnemyMage : EnemyBase, IDamageable {
     }
 
     [SerializeField] private bool findingClosestPoint = false;
-    
+    private bool isWalkingTo = false;
     public override void MonitorAwareness()
     {
         if (isDead)
@@ -75,9 +80,24 @@ public class EnemyMage : EnemyBase, IDamageable {
             else
             { navMesh.isStopped = false; animator.SetBool("isWalking", true); }
         }
+        else if(dist>= attackRadius)
+        {
+            isWalkingTo = true;
+            navMesh.SetDestination(player.transform.position);  // Set the target destination to the players location
+            RotateToTarget();   // Continue to look at the player
+
+            animator.SetBool("isWalking", true);    // Ensure the enemy is animated to walk
+        }
         else
         {
             //navMesh.ResetPath();
+            animator.SetBool("isWalking", false);
+        }
+
+        if (isWalkingTo && dist <= attackRadius)
+        {
+            navMesh.ResetPath();
+            isWalkingTo = false;
             animator.SetBool("isWalking", false);
         }
     }
@@ -103,6 +123,12 @@ public class EnemyMage : EnemyBase, IDamageable {
         }
     }
 
+    public override void AddDeathEvent(Action _event)
+    {
+        if (_event != null)
+            eventsOnDeath += _event;
+    }
+
     private void MonitorDeath()
     {
         if (isDying)
@@ -119,6 +145,12 @@ public class EnemyMage : EnemyBase, IDamageable {
     {
         yield return new WaitForSeconds(delay);
 
+        while (GameState.singleton.IsPaused)
+            yield return null;
+
+        if (eventsOnDeath != null)
+            eventsOnDeath();
+
         Destroy(gameObject);
     }
 
@@ -131,8 +163,12 @@ public class EnemyMage : EnemyBase, IDamageable {
     {
         yield return new WaitForSeconds(0.5f);
 
-        GameObject proj = Instantiate(projectilePrefab);
+        while (GameState.singleton.IsPaused)
+            yield return null;
+
+        GameObject proj = Instantiate(projectilePrefabs[UnityEngine.Random.Range(0, projectilePrefabs.Count)]);
         proj.transform.position = shootPoint.transform.position;
+        proj.transform.parent = this.transform;
     }
 
     private void RotateToTarget()
@@ -146,7 +182,6 @@ public class EnemyMage : EnemyBase, IDamageable {
 
     private IEnumerator FindClosestPoint()
     {
-        print("Coroutine Start");
         findingClosestPoint = true;
         Vector2 origin = new Vector2(player.transform.position.x, player.transform.position.z);
         int angle = 30;
@@ -193,7 +228,7 @@ public class EnemyMage : EnemyBase, IDamageable {
             }
         }
         
-        print("Setting False");
+        //print("Setting False");
         findingClosestPoint = false;
     }
 }

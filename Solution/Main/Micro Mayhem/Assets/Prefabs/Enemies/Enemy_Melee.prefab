@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a5ee8aa39e05c4b8ef05d083af58d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  awarenessRadius: 20
+  awarenessRadius: 100
   attackRadius: 3.75
   attackInterval: 2
   movementSpeed: 2
@@ -1182,6 +1182,7 @@ MonoBehaviour:
   maximumHealth: 100
   currentHealth: 0
   damage: 0
+  entityType: enemy
   impactParticle: {fileID: 1522793673276660, guid: 80915928b33a7b740af705b44461297c,
     type: 2}
 --- !u!136 &136548708444021434

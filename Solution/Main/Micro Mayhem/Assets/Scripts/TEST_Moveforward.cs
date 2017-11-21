@@ -11,6 +11,9 @@ public class TEST_Moveforward : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameState.singleton.IsPaused)
+            return;
+
         transform.position += transform.forward * Time.deltaTime * 20.0f;
 	}
 

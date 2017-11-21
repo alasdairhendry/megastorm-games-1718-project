@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class EnemyTank : EnemyBase, IDamageable {
 
     float IDamageable.MaximumHealth { get { return base.maximumHealth; } set { base.maximumHealth = value; } }
     float IDamageable.CurrentHealth { get { return base.currentHealth; } set { base.currentHealth = value; } }
+    string IDamageable.EntityType { get { return entityType; } set { entityType = value; } }
 
     [SerializeField] GameObject impactParticle;
     GameObject IDamageable.ImpactParticle { get { return impactParticle; } }
@@ -15,6 +17,8 @@ public class EnemyTank : EnemyBase, IDamageable {
 
     private bool isDying = false;
     private bool isDead = false;
+
+    [SerializeField] private GameObject crumbleTransform;
 
     void IDamageable.Die()
     {
@@ -26,7 +30,7 @@ public class EnemyTank : EnemyBase, IDamageable {
     {
         AddDamageFloater(damage.ToString());
         ((IDamageable)this).CurrentHealth -= damage;
-        print(damage);
+        //print(damage);
 
         if (((IDamageable)this).CurrentHealth <= 0)
             ((IDamageable)this).Die();
@@ -41,6 +45,10 @@ public class EnemyTank : EnemyBase, IDamageable {
 
     private new void Update()
     {
+        if (GameState.singleton.IsPaused)
+            return;
+
+
         base.Update();
         MonitorAwareness();
         MonitorAttack();
@@ -107,6 +115,13 @@ public class EnemyTank : EnemyBase, IDamageable {
             }
         }
     }
+
+    public override void AddDeathEvent(Action _event)
+    {
+        if (_event != null)
+            eventsOnDeath += _event;
+    }
+
     [SerializeField] private ParticleSystem[] attackParticles;
 
     private void MonitorDeath()
@@ -116,7 +131,12 @@ public class EnemyTank : EnemyBase, IDamageable {
             //if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
             //{
                 isDead = true;
-                StartCoroutine(DestroyThis(1));
+                StartCoroutine(DestroyThis(3));
+            animator.SetBool("isWalking", false);
+            animator.SetBool("inSight", false);
+            transform.Find("Graphics").Find("RockFist").Find("RockFist").GetComponent<SkinnedMeshRenderer>().enabled = false;
+            crumbleTransform.SetActive(true);
+            crumbleTransform.GetComponent<Animator>().SetTrigger("Die");
             //}
         }
     }
@@ -124,6 +144,12 @@ public class EnemyTank : EnemyBase, IDamageable {
     private IEnumerator DestroyThis(float delay)
     {
         yield return new WaitForSeconds(delay);
+
+        while (GameState.singleton.IsPaused)
+            yield return null;
+
+        if (eventsOnDeath != null)
+            eventsOnDeath();
 
         Destroy(gameObject);
     }
@@ -146,6 +172,10 @@ public class EnemyTank : EnemyBase, IDamageable {
     {
         yield return new WaitForSeconds(1.75f);
 
+        while (GameState.singleton.IsPaused)
+            yield return null;
+
+
         RaycastHit[] hits = Physics.SphereCastAll(this.transform.position, 10, Vector3.up);
 
         foreach (RaycastHit hit in hits)
@@ -154,8 +184,7 @@ public class EnemyTank : EnemyBase, IDamageable {
                 continue;
 
             if (hit.collider.gameObject.GetComponent<IDamageable>() != null)
-            {
-                print("found");
+            {                
                 hit.collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
             }
         }

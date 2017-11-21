@@ -21,6 +21,9 @@ public class Bullet : MonoBehaviour {
 
     // Update is called once per frame
     protected virtual void Update () {
+        if (GameState.singleton.IsPaused)
+            return;
+
         transform.position += transform.forward * Time.deltaTime * speed;
 	}
 

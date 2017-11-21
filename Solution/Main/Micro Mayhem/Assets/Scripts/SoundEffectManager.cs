@@ -13,8 +13,6 @@ public class SoundEffectManager : MonoBehaviour {
             singleton = this;
         else if (singleton != this)
             Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public void Play2DSound(AudioClip clip, bool loop, float delay, float volume)

@@ -13,6 +13,7 @@ public class WeaponTheCleanser : WeaponBase {
     private bool isShooting = false;
 
     [SerializeField]  private List<Damageable> currentTargets = new List<Damageable>();
+    [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
     //private List<LineRenderBeam> currentTargetLR = new List<LineRenderBeam>();
 
     private void Start()
@@ -27,6 +28,28 @@ public class WeaponTheCleanser : WeaponBase {
 
     private void Update()
     {
+        if (GameState.singleton.IsPaused)
+            return;
+
+        if (!base.isActiveGun)
+        {
+            foreach (LineRenderBeam particle in particles)
+            {
+                if (particle != null)
+                    particle.Stop();
+            }
+            currentTargets.Clear();
+
+            for (int i = 0; i < particles.Count; i++)
+            {
+                if (particles[i] != null)
+                    Destroy(particles[i].gameObject);
+            }
+            particles.Clear();
+            isShooting = false;
+            return;
+        }
+
         if (Input.GetMouseButton(1))
         {
             Fire();
@@ -47,6 +70,8 @@ public class WeaponTheCleanser : WeaponBase {
                     Destroy(particles[i].gameObject);
             }
             particles.Clear();
+
+            isShooting = false;
         }
     }
 
@@ -64,6 +89,12 @@ public class WeaponTheCleanser : WeaponBase {
         {
             currentClipAmount -= baseRateOfFire * Time.deltaTime * currentTargets.Count;
             Shoot();
+
+            if (!isShooting)
+            {
+                isShooting = true;
+                StartCoroutine(PlaySFX());                
+            }
         }
         else
         {
@@ -78,11 +109,14 @@ public class WeaponTheCleanser : WeaponBase {
     {
         FindEnemiesInRange();  // Find the closest damageable
         if (currentTargets.Count == 0)
+        {
             foreach (LineRenderBeam particle in particles)
             {
                 if (particle != null)
                     particle.Stop();
             }
+            isShooting = false;
+        }
         else
             foreach (LineRenderBeam particle in particles)
             {
@@ -105,6 +139,9 @@ public class WeaponTheCleanser : WeaponBase {
     public override IEnumerator Reload()
     {
         isReloading = true;
+
+        while (GameState.singleton.IsPaused)
+            yield return null;
 
         if (totalAmmo == 0)
         {
@@ -143,18 +180,21 @@ public class WeaponTheCleanser : WeaponBase {
             if (Vector3.Distance(this.transform.position, damagable.transform.position) < 15.0f)
             {
                 if (CheckStreamContains(damagable) == false)
-                {                  
-                    GameObject particle = Instantiate(particleSystemPrefab) as GameObject;
-                    particle.transform.parent = shootPoint.transform;
-                    particle.transform.localPosition = Vector3.zero;
-                    particle.transform.localScale = Vector3.one;
-                    particles.Add(particle.GetComponent<LineRenderBeam>());
+                {
+                    if (damagable.GetComponent<IDamageable>().EntityType == "enemy")
+                    {
+                        GameObject particle = Instantiate(particleSystemPrefab) as GameObject;
+                        particle.transform.parent = shootPoint.transform;
+                        particle.transform.localPosition = Vector3.zero;
+                        particle.transform.localScale = Vector3.one;
+                        particles.Add(particle.GetComponent<LineRenderBeam>());
 
-                    print(damagable.gameObject.name);
-                    particle.GetComponent<LineRenderBeam>().Play(damagable.gameObject.transform);
-                    AddTarget(damagable);
-                    //print("BOOP");
-                    //print(currentTargets.Count + " count");
+                        //print(damagable.gameObject.name);
+                        particle.GetComponent<LineRenderBeam>().Play(damagable.gameObject.transform);
+                        AddTarget(damagable);
+                        //print("BOOP");
+                        //print(currentTargets.Count + " count");
+                    }
                 }
             }
             else
@@ -192,11 +232,43 @@ public class WeaponTheCleanser : WeaponBase {
                 currentTargets.RemoveAt(i);
             }
         }
+    }
 
-        for (int i = 0; i < particles.Count; i++)
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.name == "Ground")
         {
-            Destroy(particles[i].gameObject);        
+            base.Crumble();
         }
-        particles.Clear();
+    }
+
+    private IEnumerator PlaySFX()
+    {
+        audioSources[0].Play();
+        print("hasStarted");
+
+        print(isShooting);
+        while (isShooting)
+        {
+            print("isShooting");
+
+            while (audioSources[0].isPlaying)
+            {
+                print("Playing 01");
+                yield return null;
+            }
+
+            if(!audioSources[1].isPlaying)
+            audioSources[1].Play();
+
+           
+
+            yield return null;
+        }
+
+        audioSources[1].Stop();
+        audioSources[2].Play();
+        yield break;        
+
     }
 }
