@@ -251,6 +251,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4175634211374362}
   - component: {fileID: 137372849529614538}
+  - component: {fileID: 114973058220390852}
+  - component: {fileID: 65169634787269814}
   m_Layer: 0
   m_Name: Plane.001
   m_TagString: Untagged
@@ -613,6 +615,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4036093590718792}
   - component: {fileID: 137659158074437960}
+  - component: {fileID: 114048511575408836}
+  - component: {fileID: 65416306917261044}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1195,6 +1199,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!65 &65169634787269814
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281995411736166}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013250518, y: 0.016964074, z: 0.007976156}
+  m_Center: {x: -4.538199e-16, y: 0.009694116, z: -0.003004363}
+--- !u!65 &65416306917261044
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1984496482190540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015, y: 0.015, z: 0.015}
+  m_Center: {x: 0.00006872324, y: 0, z: 0.0011465726}
 --- !u!95 &95134236632360806
 Animator:
   serializedVersion: 3
@@ -1324,6 +1352,21 @@ MonoBehaviour:
   shootPoint: {fileID: 1275166521981852}
   impactParticle: {fileID: 0}
   findingClosestPoint: 0
+--- !u!114 &114048511575408836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1984496482190540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114356328036771316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1335,6 +1378,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae5d6b36a2de4b43b32097357b2ea8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114973058220390852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281995411736166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!136 &136811617113403524
 CapsuleCollider:
   m_ObjectHideFlags: 1
