@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4860947999515672}
   - component: {fileID: 198480265978421000}
   - component: {fileID: 199189525120627570}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cell_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4023061552643716}
   - component: {fileID: 198549590527935108}
   - component: {fileID: 199868940750746962}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Halo_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4562473919955940}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 114373967376279792}
   - component: {fileID: 114499127775035230}
   - component: {fileID: 54452830635339466}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4675205467811232}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NecromancerProjectile_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4841063937241398}
   - component: {fileID: 198195870983349660}
   - component: {fileID: 199193808131034986}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fire_Water_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4691147474645362}
   - component: {fileID: 198827906042547852}
   - component: {fileID: 199728841731625186}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Light_Ring_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -29,10 +29,11 @@ public class Bullet : MonoBehaviour {
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        print(other.gameObject.name);
         if (other.GetComponent<IDamageable>() != null)
         {
             other.GetComponent<IDamageable>().TakeDamage(damage);
-
+           
             if (other.GetComponent<IDamageable>().ImpactParticle != null)
             {
                 //GameObject particle = Instantiate(other.GetComponent<IDamageable>().ImpactParticle);
