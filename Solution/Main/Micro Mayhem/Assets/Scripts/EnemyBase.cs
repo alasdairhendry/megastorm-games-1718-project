@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Base Enemy class
+/// </summary>
 public class EnemyBase : MonoBehaviour {
 
     [Header("Base Values")]

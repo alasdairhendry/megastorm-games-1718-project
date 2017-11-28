@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the spawning of a levels waves
+/// </summary>
 public class Waves : MonoBehaviour {
 
     public static Waves singleton;
@@ -32,6 +35,7 @@ public class Waves : MonoBehaviour {
         CheckWavesFinished();
 	}
 
+    // Monitor our waves, and check if we can spawn any of them
     private void MonitorWave()
     {        
         foreach (Wave wave in waves)
@@ -69,6 +73,7 @@ public class Waves : MonoBehaviour {
         }
     }
 
+    // Check to see if all the waves have finished, and all enemies are dead, to determine if the level has been completed or not.
     private void CheckWavesFinished()
     {
         bool wavesFinished = true;
@@ -91,6 +96,7 @@ public class Waves : MonoBehaviour {
         }
     }
 
+    // Return a wave, if it can be spawned
     private WaveEnemy CheckWave(int index)
     {
         foreach (WaveEnemy waveEnemy in waveEnemies)
@@ -104,6 +110,7 @@ public class Waves : MonoBehaviour {
         return null;
     }
 
+    // Return a list of eligible spawn points for a given wave
     private List<GameObject> GetSpawns(int spawnIndex)
     {
         List<GameObject> spawns = new List<GameObject>();

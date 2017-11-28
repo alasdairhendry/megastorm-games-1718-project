@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to define the parameters of the player's movement
+/// </summary>
 public class PlayerMovement : MonoBehaviour {
 
     private Animator animator;
@@ -30,6 +33,7 @@ public class PlayerMovement : MonoBehaviour {
             return;
         }
 
+        // Calculate our lower body movement during a FixedUpdate, as it is a physics calculation
         LowerBodyMovement();
     }
 
@@ -40,18 +44,19 @@ public class PlayerMovement : MonoBehaviour {
         UpperBodyMovement();
 	}
 
+    // Control the movement of our player, on a global axis, using the player's input
     private void LowerBodyMovement()
     {
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");        
-
-        //transform.position += new Vector3(horizontalInput, 0.0f, verticalInput).normalized * movementSpeed * Time.deltaTime;
+        
         rigidbody.velocity = new Vector3(horizontalInput, 0.0f, verticalInput).normalized * movementSpeed * Time.deltaTime;
 
         animator.SetFloat("ForwardMotion", verticalInput);
         animator.SetFloat("SidewardMotion", horizontalInput);
     }
 
+    // Rotate the upper part of the player, depending on the position of the mouse
     private void UpperBodyMovement()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

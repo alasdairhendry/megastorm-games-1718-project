@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// AI Behaviour for the Boom enemy
+/// </summary>
 public class EnemyBoom : EnemyBase, IDamageable {
 
     float IDamageable.MaximumHealth { get { return base.maximumHealth; } set { base.maximumHealth = value; } }
@@ -19,11 +22,13 @@ public class EnemyBoom : EnemyBase, IDamageable {
 
     string IDamageable.EntityType { get { return entityType; } set { entityType = value; } }
 
+    // Kill this enemy
     void IDamageable.Die()
     {        
         isDying = true;
     }
 
+    // Tell this enemy to take damage
     void IDamageable.TakeDamage(float damage)
     {
         AddDamageFloater(damage.ToString());
@@ -56,6 +61,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
             FindClosestTarget();
     }
 
+    // Monitor where the enemy is in respect to the character
     public override void MonitorAwareness()
     {
         if (isDead || isDying)
@@ -66,6 +72,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
 
         float dist = Vector3.Distance(transform.position, target.transform.position);
 
+        // If we are close enough to see the target, move towards it 
         if (dist <= awarenessRadius)
         {
             navMesh.SetDestination(target.transform.position);
@@ -90,6 +97,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
         }
     }
 
+    // Monitor when this enemy attacks
     public override void MonitorAttack()
     {
         if (isDead)
@@ -105,6 +113,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
 
         timeUntilNextAttack += Time.deltaTime;
 
+        // If we are within our attack range, and we can attack - Attack!
         if (timeUntilNextAttack >= attackInterval)
         {
             timeUntilNextAttack = 0.0f;
@@ -113,12 +122,14 @@ public class EnemyBoom : EnemyBase, IDamageable {
         }
     }
 
+    // Events to be called when the enemy dies
     public override void AddDeathEvent(Action _event)
     {
         if (_event != null)
             eventsOnDeath += _event;
     }
 
+    // Monitor if this enemy should be dying or not 
     private void MonitorDeath()
     {
         if (isDying)
@@ -128,6 +139,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
         }
     }
 
+    // Kill the enemy after a given interval
     private IEnumerator DestroyThis(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -141,6 +153,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
         Destroy(gameObject);
     }
 
+    // Find the closest target that we can attack
     private void FindClosestTarget()
     {
         Damageable[] damagables = GameObject.FindObjectsOfType<Damageable>();
@@ -152,9 +165,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
             {
                 validTargets.Add(d);
             }
-        }
-
-        //print("Found " + validTargets.Count + " valid targets");
+        }        
 
         float closestPoint = Mathf.Infinity;
         Damageable closestGO = new Damageable();
@@ -172,6 +183,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
         target = closestGO.gameObject;
     }
 
+    // Face our target
     private void RotateToTarget()
     {
         Vector3 direction = (target.transform.position - transform.position).normalized;
@@ -181,12 +193,14 @@ public class EnemyBoom : EnemyBase, IDamageable {
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
+    // Attack our target
     public override void Attack()
     {
         StartCoroutine(DoAttackDamage());   // Wait for attack animation to finish before applying damage
         isDying = true;
     }
 
+    // Send damage to enemies in our attack radius, after a given interval (Animation delay)
     private IEnumerator DoAttackDamage()
     {
         yield return new WaitForSeconds(1.5f);

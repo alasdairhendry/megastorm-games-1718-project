@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Unused.
+/// </summary>
 public class SpawnPoint : MonoBehaviour {
 
 	// Use this for initialization

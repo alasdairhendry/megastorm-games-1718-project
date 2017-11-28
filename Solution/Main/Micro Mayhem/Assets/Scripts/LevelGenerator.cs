@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A simple Level Creator.
+/// -Stores a list of props that can be used and allows you to place them in a grid
+/// </summary>
 public class LevelGenerator : MonoBehaviour {
 
     [Header ("Definitions")]

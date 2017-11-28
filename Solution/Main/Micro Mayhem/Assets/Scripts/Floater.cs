@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A floating piece of HUD, such as damage or notifications
+/// </summary>
 public class Floater : MonoBehaviour {
 
     Action onDeath;

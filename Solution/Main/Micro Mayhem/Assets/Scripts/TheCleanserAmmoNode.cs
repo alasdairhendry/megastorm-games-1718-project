@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Unused.
+/// </summary>
 public class TheCleanserAmmoNode : MonoBehaviour
 {
 

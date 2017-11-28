@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// The base that all friendly entities should derive from
+/// </summary>
 public class FriendlyBase : MonoBehaviour, IDamageable {
 
     [Header("Base Values")]
@@ -39,8 +42,6 @@ public class FriendlyBase : MonoBehaviour, IDamageable {
     {
         currentHealth = maximumHealth;
         navMesh = GetComponent<NavMeshAgent>();
-        //navMesh.speed = movementSpeed;
-        //navMesh.angularSpeed = turnSpeed;
         animator = GetComponentInChildren<Animator>();
     }
 

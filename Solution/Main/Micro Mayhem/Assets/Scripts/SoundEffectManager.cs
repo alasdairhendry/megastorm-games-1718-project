@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Static class that allows us to spawn in 2D sounds with great control
+/// </summary>
 public class SoundEffectManager : MonoBehaviour {
 
     public static SoundEffectManager singleton;

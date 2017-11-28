@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Generic class that makes the given object look at the Target
+/// </summary>
 public class LookAt : MonoBehaviour {
 
     [SerializeField] private Transform target;

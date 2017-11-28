@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Generic Class that rotates towards a given target
+/// </summary>
 public class Billboard : MonoBehaviour {
 
     [SerializeField] private GameObject target;

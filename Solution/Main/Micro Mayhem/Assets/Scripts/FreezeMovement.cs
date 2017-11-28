@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Slows the movement of the player when active
+/// </summary>
 public class FreezeMovement : MonoBehaviour {
 
     [SerializeField] [Range(0, 1)] private float percentageDecrease = 0.5f;
@@ -9,8 +12,7 @@ public class FreezeMovement : MonoBehaviour {
     private float initialSpeed = 0;
 
 	// Use this for initialization
-	void Start () {
-        //GameObject.Find("Frozen_Overlay").transform.GetChild(0).gameObject.SetActive(true);
+	void Start () {        
         initialSpeed = GameObject.FindObjectOfType<PlayerMovement>().MovementSpeed;
         GameObject.FindObjectOfType<PlayerMovement>().MovementSpeed = initialSpeed * percentageDecrease;
 
