@@ -154,7 +154,8 @@ public class EnemyMelee : EnemyBase, IDamageable
     public override void Attack()
     {
         animator.SetTrigger("Attack");
-        StartCoroutine(ApplyDamage());         
+        StartCoroutine(ApplyDamage());
+        PlayAttackSound();
     }
 
     private IEnumerator ApplyDamage()
@@ -165,5 +166,10 @@ public class EnemyMelee : EnemyBase, IDamageable
             yield return null;
 
         player.GetComponent<IDamageable>().TakeDamage(damage);
+    }
+
+    public void PlayAttackSound()
+    {
+        base.PlaySFX(0, false, 0.0f, 1.0f, 25.0f, 500.0f);
     }
 }

@@ -170,6 +170,7 @@ public class EnemyMage : EnemyBase, IDamageable {
     public override void Attack()
     {
         StartCoroutine(SpawnProjectile());
+        PlayAttackSound();
     }
 
     // After a delay, attack our target
@@ -246,5 +247,10 @@ public class EnemyMage : EnemyBase, IDamageable {
         
         //print("Setting False");
         findingClosestPoint = false;
+    }
+
+    public void PlayAttackSound()
+    {
+        base.PlaySFX(0, false, 0.1f, 1.0f, 10.0f, 500.0f);
     }
 }

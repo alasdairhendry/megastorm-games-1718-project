@@ -19,4 +19,9 @@ public class MainMenuCanvas : MonoBehaviour {
     {
         SceneManager.LoadScene(1);
     }
+
+    public void OnClick_ExitGame()
+    {
+        Application.Quit();
+    }
 }

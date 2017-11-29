@@ -519,6 +519,8 @@ MonoBehaviour:
   currentHealth: 0
   damage: 100
   entityType: enemy
+  soundEffects:
+  - {fileID: 8300000, guid: 0f243282e7ec8f845b4509be8f17094c, type: 3}
   impactParticle: {fileID: 0}
   isDying: 0
   isDead: 0

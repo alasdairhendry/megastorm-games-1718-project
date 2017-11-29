@@ -1345,6 +1345,8 @@ MonoBehaviour:
   currentHealth: 0
   damage: 10
   entityType: enemy
+  soundEffects:
+  - {fileID: 8300000, guid: 0112d6e44a1be7c4b8b49378d574e4d6, type: 3}
   projectilePrefabs:
   - {fileID: 1670108696517738, guid: ba89cec94f812b945ab3ce757e5434ae, type: 2}
   - {fileID: 1670108696517738, guid: ba89cec94f812b945ab3ce757e5434ae, type: 2}

@@ -198,6 +198,7 @@ public class EnemyBoom : EnemyBase, IDamageable {
     {
         StartCoroutine(DoAttackDamage());   // Wait for attack animation to finish before applying damage
         isDying = true;
+        PlayAttackSound();
     }
 
     // Send damage to enemies in our attack radius, after a given interval (Animation delay)
@@ -221,5 +222,10 @@ public class EnemyBoom : EnemyBase, IDamageable {
                     hit.collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
             }
         }
+    }
+
+    public void PlayAttackSound()
+    {
+        base.PlaySFX(0, false, 1.6f, 1.0f, 10.0f, 500.0f);
     }
 }

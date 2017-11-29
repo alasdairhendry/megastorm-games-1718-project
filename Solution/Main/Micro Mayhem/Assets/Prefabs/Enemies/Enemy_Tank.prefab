@@ -4960,6 +4960,9 @@ MonoBehaviour:
   currentHealth: 0
   damage: 50
   entityType: enemy
+  soundEffects:
+  - {fileID: 8300000, guid: bc749c17ca59e97468e2ca31958aaec1, type: 3}
+  - {fileID: 8300000, guid: 02ea274a81970ee4ba2b73a884280ff7, type: 3}
   impactParticle: {fileID: 0}
   crumbleTransform: {fileID: 1867599138814308}
   attackParticles:
