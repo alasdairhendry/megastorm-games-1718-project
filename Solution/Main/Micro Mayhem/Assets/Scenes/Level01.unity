@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adbee4400eb197438eff03b14bf031c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTutorial: 0
+  playTutorial: 1
   tutorials:
   - header: Punchy
     stub: 0
