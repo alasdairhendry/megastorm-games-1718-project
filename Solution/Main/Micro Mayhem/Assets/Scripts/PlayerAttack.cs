@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Used to control the combat components of the player
+/// </summary>
 public class PlayerAttack : MonoBehaviour, IDamageable {
 
     private Animator animator;
@@ -30,12 +33,13 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
     [SerializeField] private GameObject secondaryWeaponGUIContainer;
     [SerializeField] private RectTransform healthBar;    
 
+    // Kill the player
     void IDamageable.Die()
     {
-        //Debug.Log("Dead");
         LevelFinishedOverlay.singleton.PlayerDied();
     }
 
+    // Take damage on the player
     void IDamageable.TakeDamage(float damage)
     {
         //DamageFloaters.singleton.AddFloater(damage.ToString("00"), Color.red, this.transform, new Vector3(0, 1.5f, -1.0f), 1);
@@ -47,6 +51,7 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
 
     }
 
+    // Equip a secondary weapon
     public void EquipWeapon(GameObject weapon)
     {
         if(weapons.Count == 1) // We only have our mini gun
@@ -89,6 +94,7 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
         }
     }
 
+    // Drop a secondary weapon
     public void DropSecondary()
     {
         if(weapons.Count == 2)
@@ -106,6 +112,7 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
         }
     }
 
+    // Update the healthbar with our health values
     private void UpdateHealthBar()
     {
         float t = currentHealth / maximumHealth;
@@ -114,6 +121,7 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
         healthBar.sizeDelta = new Vector2(width, healthBar.sizeDelta.y);
     }
 
+    // Regenerates player health, to an extent, over time
     private void RegenerateHealth()
     {
         if (currentHealth < maximumHealth * 0.25f && currentHealth > 0.0f)
@@ -172,6 +180,7 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
 
     private List<string> currentFloaters = new List<string>();
 
+    // Monitor our damage floaters
     private void MonitorDamageFloaters()
     {
         damageFloaterCurrCounter += Time.deltaTime;
@@ -183,6 +192,7 @@ public class PlayerAttack : MonoBehaviour, IDamageable {
         }
     }
 
+    // Send our damage floaters in a lump sum
     private void SendDamageFloaters()
     {
         float allDamage = 0.0f;

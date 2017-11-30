@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Keeps track of all friendly & unfriendly types
+/// </summary>
 public class EntityRecords : MonoBehaviour {
 
     public static EntityRecords singleton;
@@ -25,6 +28,7 @@ public class EntityRecords : MonoBehaviour {
         onEnemySpawn += Tutorial.singleton.OnEnemySpawn;
     }
 
+    // Spawn an enemy
     public void SpawnEnemy(GameObject prefab, Vector3 position)
     {
         GameObject go = Instantiate(prefab);
@@ -38,16 +42,7 @@ public class EntityRecords : MonoBehaviour {
             onEnemySpawn(go.GetComponent<EnemyBase>());
     }
 
-    //public void SpawnEnemy(GameObject prefab, Transform parent, Vector3 localPosition)
-    //{
-    //    GameObject go = Instantiate(prefab);
-    //    go.transform.parent = parent;
-    //    go.transform.localPosition = localPosition;
-    //    go.GetComponent<EnemyBase>().AddDeathEvent(() => { enemyEntities.Remove(go); CheckList(); });
-
-    //    enemyEntities.Add(go);
-    //}
-
+    // Spawn a friendly
     public void SpawnFriendly(GameObject prefab, Vector3 position)
     {
         GameObject go = Instantiate(prefab);
@@ -59,6 +54,7 @@ public class EntityRecords : MonoBehaviour {
         friendlyEntities.Add(go);
     }
 
+    // Return the ratio of Friendly to Unfriendly (Healthy to Unhealthy) entities in the scene
     public float GetInfectionData()
     {
         float infectionRatio = 0.0f;
@@ -97,12 +93,14 @@ public class EntityRecords : MonoBehaviour {
         return infectionRatio;
     }
 
+    // Return true if there are no enemies in the scene
     public bool GetEnemiesDead()
     {
         if (enemyEntities.Count <= 0) return true;
         else return false;
     }
 
+    // Ensure our entities lists do not have null values 
     private void CheckList ()
     {
         for (int i = 0; i < friendlyEntities.Count; i++)

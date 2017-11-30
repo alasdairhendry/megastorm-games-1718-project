@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Abstract class that plays a sound effect when spawned
+/// </summary>
 public class Sound2D : MonoBehaviour {
 
     private AudioSource source;

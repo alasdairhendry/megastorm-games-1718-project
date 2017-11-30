@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Unused.
+/// </summary>
 public class TEST_ParticleAttractor : MonoBehaviour {
 
     [SerializeField] private ParticleSystem target;

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// AI Behaviour for the Necromancer enemy
+/// </summary> 
 public class EnemyMelee : EnemyBase, IDamageable
 {
     float IDamageable.MaximumHealth { get { return base.maximumHealth; } set { base.maximumHealth = value; } }
@@ -19,12 +22,14 @@ public class EnemyMelee : EnemyBase, IDamageable
     private bool isDying = false;
     private bool isDead = false;
 
+    // Kill this enemy
     void IDamageable.Die()
     {
         animator.SetTrigger("Die");
         isDying = true;
     }
 
+    // Take damage on this enemy
     void IDamageable.TakeDamage(float damage)
     {
         AddDamageFloater(damage.ToString());
@@ -55,6 +60,7 @@ public class EnemyMelee : EnemyBase, IDamageable
         MonitorDeath();
     }
 
+    // Monitor where we are in regards to the player
     public override void MonitorAwareness()
     {        
         if(isDead)
@@ -148,7 +154,8 @@ public class EnemyMelee : EnemyBase, IDamageable
     public override void Attack()
     {
         animator.SetTrigger("Attack");
-        StartCoroutine(ApplyDamage());         
+        StartCoroutine(ApplyDamage());
+        PlayAttackSound();
     }
 
     private IEnumerator ApplyDamage()
@@ -159,5 +166,10 @@ public class EnemyMelee : EnemyBase, IDamageable
             yield return null;
 
         player.GetComponent<IDamageable>().TakeDamage(damage);
+    }
+
+    public void PlayAttackSound()
+    {
+        base.PlaySFX(0, false, 0.0f, 1.0f, 25.0f, 500.0f);
     }
 }

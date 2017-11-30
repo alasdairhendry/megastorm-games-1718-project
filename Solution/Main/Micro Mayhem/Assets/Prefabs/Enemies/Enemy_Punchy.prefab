@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 137153466311414496}
   - component: {fileID: 114588323954620360}
   - component: {fileID: 65192392458630276}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Punchy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,6 +635,8 @@ MonoBehaviour:
   currentHealth: 0
   damage: 3
   entityType: enemy
+  soundEffects:
+  - {fileID: 8300000, guid: a8710cb6d9540c1458044a1241d61da7, type: 3}
   impactParticle: {fileID: 1522793673276660, guid: 80915928b33a7b740af705b44461297c,
     type: 2}
 --- !u!114 &114588323954620360

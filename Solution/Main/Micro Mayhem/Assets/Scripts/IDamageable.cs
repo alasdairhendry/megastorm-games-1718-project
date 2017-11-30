@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Interface used to define the variables of an Object that can take damage
+/// </summary>
 public interface IDamageable {
 
     float MaximumHealth { get; set; }

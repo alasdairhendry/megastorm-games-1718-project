@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to lock the rotation of a transform
+/// </summary>
 public class RotationLock : MonoBehaviour {
 
     private enum LockType { Global, Local }

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// AI Behaviour for the Necromancer enemy
+/// </summary> 
 public class EnemyMage : EnemyBase, IDamageable {
 
     float IDamageable.MaximumHealth { get { return base.maximumHealth; } set { base.maximumHealth = value; } }
@@ -22,17 +25,21 @@ public class EnemyMage : EnemyBase, IDamageable {
     private bool isDying = false;
     private bool isDead = false;
 
+    [SerializeField] private bool findingClosestPoint = false;
+    private bool isWalkingTo = false;
+
+    // Kill this enemy
     void IDamageable.Die()
     {
         animator.SetTrigger("Die");
         isDying = true;
     }
 
+    // Tell this enemy to take damage
     void IDamageable.TakeDamage(float damage)
     {
         AddDamageFloater(damage.ToString());
         ((IDamageable)this).CurrentHealth -= damage;
-        //print(damage);
 
         if (((IDamageable)this).CurrentHealth <= 0)
             ((IDamageable)this).Die();
@@ -56,8 +63,7 @@ public class EnemyMage : EnemyBase, IDamageable {
         MonitorDeath();
     }
 
-    [SerializeField] private bool findingClosestPoint = false;
-    private bool isWalkingTo = false;
+    // Monitor where the enemy is in respect to the character
     public override void MonitorAwareness()
     {
         if (isDead)
@@ -65,6 +71,7 @@ public class EnemyMage : EnemyBase, IDamageable {
 
         float dist = Vector3.Distance(transform.position, player.transform.position);
 
+        // If the target is too close, move away from it
         if(dist <= awarenessRadius)
         {
             if (!findingClosestPoint)
@@ -102,6 +109,7 @@ public class EnemyMage : EnemyBase, IDamageable {
         }
     }
 
+    // Monitor our attack range
     public override void MonitorAttack()
     {
         if (isDead)
@@ -115,6 +123,7 @@ public class EnemyMage : EnemyBase, IDamageable {
         RotateToTarget();
         timeUntilNextAttack += Time.deltaTime;
 
+        // Attack our target if we can
         if (timeUntilNextAttack >= attackInterval)
         {
             timeUntilNextAttack = 0.0f;
@@ -123,12 +132,14 @@ public class EnemyMage : EnemyBase, IDamageable {
         }
     }
 
+    // Events called on Death
     public override void AddDeathEvent(Action _event)
     {
         if (_event != null)
             eventsOnDeath += _event;
     }
 
+    // Monitor if we are dying
     private void MonitorDeath()
     {
         if (isDying)
@@ -141,6 +152,7 @@ public class EnemyMage : EnemyBase, IDamageable {
         }
     }
 
+    // Kill this enemy, after a given interval
     private IEnumerator DestroyThis(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -154,11 +166,14 @@ public class EnemyMage : EnemyBase, IDamageable {
         Destroy(gameObject);
     }
 
+    // Choose our attack
     public override void Attack()
     {
         StartCoroutine(SpawnProjectile());
+        PlayAttackSound();
     }
 
+    // After a delay, attack our target
     private IEnumerator SpawnProjectile()
     {
         yield return new WaitForSeconds(0.5f);
@@ -171,6 +186,7 @@ public class EnemyMage : EnemyBase, IDamageable {
         proj.transform.parent = this.transform;
     }
 
+    // Face our target
     private void RotateToTarget()
     {
         Vector3 direction = (player.transform.position - transform.position).normalized;
@@ -180,6 +196,7 @@ public class EnemyMage : EnemyBase, IDamageable {
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
+    // Find the closest place that is further than our "Flee" radius
     private IEnumerator FindClosestPoint()
     {
         findingClosestPoint = true;
@@ -230,5 +247,10 @@ public class EnemyMage : EnemyBase, IDamageable {
         
         //print("Setting False");
         findingClosestPoint = false;
+    }
+
+    public void PlayAttackSound()
+    {
+        base.PlaySFX(0, false, 0.1f, 1.0f, 10.0f, 500.0f);
     }
 }

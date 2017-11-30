@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4909236824416388}
   - component: {fileID: 198222874032301502}
   - component: {fileID: 199697347323139486}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frozen_Ring_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4077170693757526}
   - component: {fileID: 198054039482113966}
   - component: {fileID: 199927811115606532}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cell_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4521889421078978}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NecromancerProjectile_Freeze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 114788058334990114}
   - component: {fileID: 114869910002300940}
   - component: {fileID: 54291455942217752}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}

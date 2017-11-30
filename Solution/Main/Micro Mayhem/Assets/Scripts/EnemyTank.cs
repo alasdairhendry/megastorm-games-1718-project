@@ -188,5 +188,17 @@ public class EnemyTank : EnemyBase, IDamageable {
                 hit.collider.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
             }
         }
+
+        PlayAttackSound();
+    }
+
+    public void PlayMovementSound()
+    {
+        base.PlaySFX(0, false, 0.0f, 1.0f, 0.1f, 50.0f);
+    }
+
+    public void PlayAttackSound()
+    {
+        base.PlaySFX(1, false, 0.0f, 1.0f, 5.0f, 500.0f);
     }
 }

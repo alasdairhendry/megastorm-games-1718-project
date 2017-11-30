@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Base Enemy class
+/// </summary>
 public class EnemyBase : MonoBehaviour {
 
     [Header("Base Values")]
@@ -21,6 +24,9 @@ public class EnemyBase : MonoBehaviour {
 
     [SerializeField] protected float damage;
     [SerializeField] protected string entityType = "enemy";
+
+    [Header("Sounds")]
+    [SerializeField] private List<AudioClip> soundEffects = new List<AudioClip>();
 
     protected Action eventsOnDeath;
 
@@ -99,5 +105,10 @@ public class EnemyBase : MonoBehaviour {
             damageFloaterCurrCounter = 0;
 
         currentFloaters.Add(text);
+    }
+
+    protected virtual void PlaySFX(int index, bool loop, float delay, float volume, float minDistance, float maxDistance)
+    {
+        SoundEffectManager.singleton.Play3DSound(soundEffects[index], this.transform, loop, delay, volume, minDistance, maxDistance);
     }
 }

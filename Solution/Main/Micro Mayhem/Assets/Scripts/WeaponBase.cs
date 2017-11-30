@@ -55,8 +55,7 @@ public class WeaponBase : MonoBehaviour {
             go.GetComponent<MeshRenderer>().enabled = false;
         }
 
-        GetComponent<Rigidbody>().isKinematic = true;
-        //transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        GetComponent<Rigidbody>().isKinematic = true;        
         GetComponent<Rigidbody>().freezeRotation = true;
 
         crumbleRoot.SetActive(true);

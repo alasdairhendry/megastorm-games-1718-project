@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to spawn friendly entities in the scene
+/// </summary>
 public class FriendlySpawner : MonoBehaviour {
 
     [SerializeField] private List<FriendlyWave> friendlyWaves = new List<FriendlyWave>();
@@ -21,6 +24,7 @@ public class FriendlySpawner : MonoBehaviour {
         MonitorWaves();
 	}
 
+    // Initialize all of our waves
     private void InitializeWaves()
     {
         foreach (FriendlyWave fw in friendlyWaves)
@@ -34,6 +38,7 @@ public class FriendlySpawner : MonoBehaviour {
         }
     }
 
+    // Monitor our waves to see if any of them are ready to spawn
     private void MonitorWaves()
     {
         foreach (FriendlyWave fw in friendlyWaves)
@@ -47,6 +52,7 @@ public class FriendlySpawner : MonoBehaviour {
         }
     }
 
+    // Called when the given wave is ready to spawn
     private void SpawnWave(FriendlyWave wave)
     {
         for (int i = 0; i < wave.GetAmount(); i++)
@@ -56,6 +62,9 @@ public class FriendlySpawner : MonoBehaviour {
     }
 }
 
+/// <summary>
+/// A defined set of rules for spawning a specific entitiy
+/// </summary>
 [System.Serializable]
 public class FriendlyWave
 {
@@ -98,8 +107,7 @@ public class FriendlyWave
 
     public float GetOffset()
     {
-        float offset = Random.Range(spawnOffset.x, spawnOffset.y);
-        //Debug.Log(offset + " offset");
+        float offset = Random.Range(spawnOffset.x, spawnOffset.y);;
         return offset;
     }
 

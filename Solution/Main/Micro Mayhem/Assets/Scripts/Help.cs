@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Abstract Class containing helper functions
+/// </summary>
 public static class Help
 {
+    // Returns the values of a vector3 to 0, using a damp value
     public static Vector3 ReturnToZero (this Vector3 value, float damping)
     {
         List<float> values = new List<float>() { value.x, value.y, value.z };

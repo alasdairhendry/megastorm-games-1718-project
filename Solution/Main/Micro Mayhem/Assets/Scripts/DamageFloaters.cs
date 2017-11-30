@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Management class that helps us to spawn "Damage Floaters" to display the damage done to an object
+/// </summary>
 public class DamageFloaters : MonoBehaviour {
 
     public static DamageFloaters singleton;
@@ -9,6 +12,7 @@ public class DamageFloaters : MonoBehaviour {
     [SerializeField] private GameObject floater;
     private List<FloaterTarget> targets = new List<FloaterTarget>();
 
+    // Construct a singleton pattern
     private void Awake()
     {
         if (singleton == null)
@@ -17,19 +21,22 @@ public class DamageFloaters : MonoBehaviour {
             Destroy(gameObject);
     }
 
+    // Create a new floater
     public void AddFloater(string text, Color colour, Transform target, Vector3 offset, float lifetime)
     {
+        // Create an empty target
         FloaterTarget _target;
 
+        // Check if we already have a container for this object, and if not, create a new one 
         if(CheckTargetExists(target.gameObject) == null)
         {
+            // Create a new target, assign it to our target variable, and add it to our records
             _target = new FloaterTarget(target.gameObject);
-            targets.Add(_target);               
-            //print("Created new Target");
+            targets.Add(_target);                           
         }
         else
-        {
-            //print("Target Found");
+        {            
+            // The target already exists in our records, so assign it.
             _target = CheckTargetExists(target.gameObject);
         }
 
@@ -37,8 +44,7 @@ public class DamageFloaters : MonoBehaviour {
 
         _floater.transform.parent = target;
         _floater.transform.position = offset + _target.SetArea(_floater);
-        //_floater.transform.localPosition = Vector3.zero;
-        //_floater.transform.position += offset;
+
         float damage = float.Parse(text);
         Vector3 scale = Vector3.Lerp(new Vector3(0.4f, 0.4f, 0.4f), new Vector3(1.2f, 1.2f, 1.2f), damage / 100.0f);
         _floater.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
@@ -49,6 +55,7 @@ public class DamageFloaters : MonoBehaviour {
         _floater.GetComponent<Floater>().Init(() => { /*Debug.Log("Killed Floater");*/ }, lifetime);
     }
 
+    // Create a new floater without creating new targets, good for one offs
     public void AddFloater(string text, Color colour, Transform target, float lifetime)
     {       
         GameObject _floater = Instantiate(floater);
@@ -62,6 +69,7 @@ public class DamageFloaters : MonoBehaviour {
         _floater.GetComponent<Floater>().Init(() => { }, lifetime);
     }
 
+    // Check if we already have a given target in our records
     private FloaterTarget CheckTargetExists(GameObject _target)
     {
         foreach (FloaterTarget target in targets)
@@ -76,19 +84,25 @@ public class DamageFloaters : MonoBehaviour {
         return null;
     }
 
+    // Destroy the given floater
     public void DestroyFloater(GameObject _floater)
     {
         Destroy(_floater);
     }
 }
 
+/// <summary>
+/// Allows us to keep track of our Floaters and spawn them efficiently and smartly.
+/// -- This means that if the Object takes damage multiple times in a few seconds, the floaters are not covering each other up
+/// </summary>
 public class FloaterTarget
 {
-    public GameObject obj;
-    List<Vector3> areas = new List<Vector3>();
-    List<GameObject> floaters = new List<GameObject>();
-    public int floaterCount = 0;
+    public GameObject obj;                                      // The object the floater is for
+    List<Vector3> areas = new List<Vector3>();                  // The areas that a floater can appear, in respect to the parent Object
+    List<GameObject> floaters = new List<GameObject>();         // The current floaters that are owned by this Object
+    public int floaterCount = 0;                                // The amount of floaters we current have
 
+    // Generic constructor, which assigns 5 areas: the origin & 4 areas around the origin where floaters can spawn
     public FloaterTarget(GameObject _origin)
     {
         obj = _origin;
@@ -99,12 +113,10 @@ public class FloaterTarget
         areas.Add(new Vector3(0, -1, 0));
     }
 
+    // Returns the appropriate position for the intended Floater to spawn
     public Vector3 SetArea(GameObject _floater)
     {        
         Vector3 position = areas[floaterCount];
-
-        //Debug.Log("Set Position");
-        //Debug.Log("Floater Counter = " + floaterCount.ToString());
 
         if(floaters.Count <= floaterCount)
             floaters.Add(_floater);

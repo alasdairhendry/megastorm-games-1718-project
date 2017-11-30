@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to control the InfectionMeter HUD
+/// </summary>
 public class InfectionMeter : MonoBehaviour {
 
     [SerializeField] private RectTransform marker;
@@ -15,15 +18,16 @@ public class InfectionMeter : MonoBehaviour {
         CheckPosition();
 	}
 
+    // Check the position that the meter should be at
     private void CheckPosition()
     {
+        // Obtain the infection information
         float infectionRatio = EntityRecords.singleton.GetInfectionData();
-        float posX = 0.0f;
-
-        //print("Infection " + infectionRatio);
+        float posX = 0.0f;        
 
         if (infectionRatio < 0)
         {
+            // Less than 0 means a healthy(ish) body. Manipulate the meter to be on the left-most side
             float t = (infectionRatio * -1.0f);
             Color left = Color.green;
             Color middle = Color.white;
@@ -35,6 +39,7 @@ public class InfectionMeter : MonoBehaviour {
         }
         else if (infectionRatio > 0)
         {
+            // Greater than 0 means an unhealthy(ish) body. Manipulate the meter to be on the right-most side
             float t = infectionRatio;
             Color right = Color.red;
             Color middle = Color.white;
@@ -46,6 +51,7 @@ public class InfectionMeter : MonoBehaviour {
         }
         else
         {
+            // The infection in the body is balanced so the meter should be centered
             posX = 0.0f;
             spotLightColour = Color.white;
         }
@@ -54,6 +60,7 @@ public class InfectionMeter : MonoBehaviour {
         SetColour(spotLightColour);
     }
 
+    // Lerp the position of time for visual effect
     private void SetPosition(float posX)
     {
         float newPosX = marker.anchoredPosition.x;
@@ -62,6 +69,7 @@ public class InfectionMeter : MonoBehaviour {
         marker.anchoredPosition = new Vector2(newPosX, marker.anchoredPosition.y);
     }
 
+    // Lerp the colour of the spotlight in the scene to display the infection rate
     private void SetColour(Color colour)
     {
         Color newColour = spotLights[0].color;

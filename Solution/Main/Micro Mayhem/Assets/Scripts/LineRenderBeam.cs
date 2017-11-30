@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the "Lines" that are displayed between The Cleanser and it's targets
+/// </summary>
 public class LineRenderBeam : MonoBehaviour {
 
     [SerializeField] private Transform target;
@@ -33,14 +36,14 @@ public class LineRenderBeam : MonoBehaviour {
 
         CalculateVertices();
         SetAverageVerts();
-        CalculateMidPointLocal();
-        //FollowTarget();
+        CalculateMidPointLocal();        
         SetParticles();
 
         if (target != null)
             centreOfMass = target.GetComponent<Rigidbody>().worldCenterOfMass;
     }
 
+    // Calculate how many vertices the line renderer should have
     private void CalculateVertices()
     {
         int Vn = 0;
@@ -55,16 +58,18 @@ public class LineRenderBeam : MonoBehaviour {
         lineRenderer.positionCount = Vn;
     }
 
+    // Set the position of the verts in a linear path, from the origin to the target
     private void SetAverageVerts()
     {
         for (int i = 0; i < lineRenderer.positionCount; i++)
-        {
-            //print(lr.positionCount);
+        {            
             lineRenderer.SetPosition(i, Vector3.Lerp(this.transform.position, targetFinder.position, (float)i / (float)lineRenderer.positionCount));
         }
     }
 
-    [SerializeField] bool p = false;
+    [SerializeField] bool p = false;    // I believe this was used to debug, not sure.. so gonna leave it here in case it completely breaks the game
+
+    // Calculate the mid point, from the origin to the target using the local forward vector to give a bezier curve to the line
     private void CalculateMidPointLocal()
     {
         if (p)
@@ -89,6 +94,7 @@ public class LineRenderBeam : MonoBehaviour {
         FollowTarget();
     }
 
+    // Follow the target
     private void FollowTarget()
     {
         if (target == null || targetFinder == null)
@@ -97,11 +103,13 @@ public class LineRenderBeam : MonoBehaviour {
         targetFinder.transform.position = Vector3.Lerp(targetFinder.transform.position, centreOfMass, Time.deltaTime * 15.0f);
     }
 
+    // Maintain the position of the particles at the end of the line
     private void SetParticles()
     {
         transform.Find("EndParticle").transform.position = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
     }
 
+    // Play the line renderer
     public void Play(Transform _target)
     {
         targetFinder = transform.Find("targetFinder");
@@ -110,21 +118,17 @@ public class LineRenderBeam : MonoBehaviour {
         //targetFinder.position = this.transform.position;
     }
 
+    // Resume the line renderer
     public void Resume()
     {
         active = true;
         //targetFinder.position = this.transform.position;
     }
 
+    // Stop the line renderer
     public void Stop()
     {
         active = false;
-        lineRenderer.positionCount = 0;
-        //print("I HAVE STOPPED");
-    }
-
-    private void OnDestroy()
-    {
-        //print("I HAVE BEEN DESTROYED");
-    }
+        lineRenderer.positionCount = 0;        
+    }   
 }
