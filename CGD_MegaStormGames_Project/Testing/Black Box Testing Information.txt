@@ -1,0 +1,7 @@
+User testing was performed via Google Forms, and the layout & responses can be found at the following link.
+
+https://docs.google.com/forms/d/1SOukx4IEcAng7cXMKHTPJaoPmJc3w3dC2UuwnotYAl8/edit?usp=sharing
+
+The forms have public access, but if they cannot be loaded, collaboraters can be added via email to review/edit the document.
+
+There is also an exported Excel version, however, it is not very user-friendly
